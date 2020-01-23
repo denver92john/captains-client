@@ -8,14 +8,17 @@ import LoginPage from '../../routes/LoginPage/LoginPage';
 import NotFoundPage from '../../routes/LoginPage/LoginPage';
 import SignupPage from '../../routes/SignupPage/SignupPage';
 import TeamsPage from '../../routes/TeamsPage/TeamsPage';
+import Nav from '../Nav/Nav';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header></header>
-        <main>
+        <header className="App-header">
+          <Nav />
+        </header>
+        <main className="App-main">
           <Switch>
             <Route 
               path={'/'}

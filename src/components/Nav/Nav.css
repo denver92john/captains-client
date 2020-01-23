@@ -1,0 +1,27 @@
+.navbar {
+    min-height: 40px;
+    max-width: 650px;
+    margin: auto;
+    padding: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 50px;
+}
+
+.nav-links {
+    list-style-type: none;
+}
+
+.nav-links li {
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.nav-link {
+    padding: 5px;
+    text-decoration: none;
+}
