@@ -8,7 +8,7 @@ class DashboardPage extends Component {
             <div>
                 <Section className="hero">
                     <header className="section-header">
-                        <h1>DashboardPage Page</h1>
+                        <h1>Dashboard Page</h1>
                     </header>
                 </Section>
                 <Section>
