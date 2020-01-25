@@ -1,9 +1,20 @@
 import React, {Component} from 'react';
+import {Section} from '../../components/Utils/Utils';
+import Dash from '../../components/Dash/Dash';
 
 class DashboardPage extends Component {
     render() {
         return (
-            <div></div>
+            <div>
+                <Section className="hero">
+                    <header className="section-header">
+                        <h1>DashboardPage Page</h1>
+                    </header>
+                </Section>
+                <Section>
+                    <Dash />
+                </Section>
+            </div>
         );
     }
 }

@@ -6,13 +6,11 @@ class LandingPage extends Component {
         return (
             <div>
                 <Section className="hero">
-                    <div className="wrapper">
-                        <header className="section-header">
-                            <h1>Landing Page</h1>
-                        </header>
-                        <div className="section-div">
-                            This app (Captains) will allow you to create a list of names which you can then use to create a randomized set number of teams.
-                        </div>
+                    <header className="section-header">
+                        <h1>Landing Page</h1>
+                    </header>
+                    <div className="section-div">
+                        This app (Captains) will allow you to create a list of names which you can then use to create a randomized set number of teams.
                     </div>
                 </Section>
                 <Section>

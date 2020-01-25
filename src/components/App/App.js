@@ -21,6 +21,7 @@ class App extends Component {
         <main className="App-main">
           <Switch>
             <Route 
+              exact
               path={'/'}
               component={LandingPage}
             />

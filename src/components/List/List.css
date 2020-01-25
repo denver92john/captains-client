@@ -1,0 +1,26 @@
+.list-component {
+    padding: 20px;
+    background-color: ghostwhite;
+    min-width: 200px;
+    min-height: 200px;
+}
+
+.named-list {
+    list-style-type: none;
+    text-align: left;
+}
+
+.named-list li {
+    border-bottom: 1px solid black;
+	padding: 5px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.named-list li:last-of-type {
+	border-bottom: none;
+}
+
+.list-item-button {
+    width: 20px;
+}
