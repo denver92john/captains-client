@@ -3,8 +3,17 @@ import {Form, Input, Button} from '../Utils/Utils';
 import icon from '../../img/wireframe-box.jpg';
 import '../List/List.css';
 
+const getItemsForList = (items=[], list_id) => (
+    (!list_id)
+        ? items
+        : items.filter(item => item.list_id === list_id)
+)
+
 class ListItems extends Component {
     render() {
+        const {list_id, list_items} = this.props;
+        const itemsForList = getItemsForList(list_items, list_id);
+
         return (
             <div className="wrapper list-component">
                 <Form>
@@ -22,34 +31,15 @@ class ListItems extends Component {
                     </div>
                 </Form>
                 <ul className="named-list">
-                    <li>
-                        <p>Joe</p>
-                        <form>
-                            <input type="image" src={icon} alt="edit button" className="list-item-button" />
-                            <input type="image" src={icon} alt="delete button" className="list-item-button" />
-                        </form>
-                    </li>
-                    <li>
-                        <p>Greg</p>
-                        <form>
-                            <input type="image" src={icon} alt="edit button" className="list-item-button" />
-                            <input type="image" src={icon} alt="delete button" className="list-item-button" />
-                        </form>
-                    </li>
-                    <li>
-                        <p>Ben</p>
-                        <form>
-                            <input type="image" src={icon} alt="edit button" className="list-item-button" />
-                            <input type="image" src={icon} alt="delete button" className="list-item-button" />
-                        </form>
-                    </li>
-                    <li>
-                        <p>Bill</p>
-                        <form>
-                            <input type="image" src={icon} alt="edit button" className="list-item-button" />
-                            <input type="image" src={icon} alt="delete button" className="list-item-button" />
-                        </form>
-                    </li>
+                    {itemsForList.map(item =>
+                        <li key={item.id}>
+                            <p>{item.item_name}</p>
+                            <form>
+                                <input type="image" src={icon} alt="edit button" className="list-item-button" />
+                                <input type="image" src={icon} alt="delete button" className="list-item-button" />
+                            </form>
+                        </li>
+                    )}
                 </ul>
             </div>
         );
@@ -57,3 +47,34 @@ class ListItems extends Component {
 }
 
 export default ListItems;
+
+/*
+    <li>
+        <p>Joe</p>
+        <form>
+            <input type="image" src={icon} alt="edit button" className="list-item-button" />
+            <input type="image" src={icon} alt="delete button" className="list-item-button" />
+        </form>
+    </li>
+    <li>
+        <p>Greg</p>
+        <form>
+            <input type="image" src={icon} alt="edit button" className="list-item-button" />
+            <input type="image" src={icon} alt="delete button" className="list-item-button" />
+        </form>
+    </li>
+    <li>
+        <p>Ben</p>
+        <form>
+            <input type="image" src={icon} alt="edit button" className="list-item-button" />
+            <input type="image" src={icon} alt="delete button" className="list-item-button" />
+        </form>
+    </li>
+    <li>
+        <p>Bill</p>
+        <form>
+            <input type="image" src={icon} alt="edit button" className="list-item-button" />
+            <input type="image" src={icon} alt="delete button" className="list-item-button" />
+        </form>
+    </li>
+*/

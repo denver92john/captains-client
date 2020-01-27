@@ -8,7 +8,9 @@ import LoginPage from '../../routes/LoginPage/LoginPage';
 import NotFoundPage from '../../routes/LoginPage/LoginPage';
 import SignupPage from '../../routes/SignupPage/SignupPage';
 import TeamsPage from '../../routes/TeamsPage/TeamsPage';
+import TeamPage from '../../routes/TeamPage/TeamPage';
 import Nav from '../Nav/Nav';
+import store from '../../dummy-store';
 import './App.css';
 
 class App extends Component {
@@ -26,18 +28,6 @@ class App extends Component {
               component={LandingPage}
             />
             <Route 
-              path={'/dashboard'}
-              component={DashboardPage}
-            />
-            <Route 
-              path={'/list-items'}
-              component={ListItemsPage}
-            />
-            <Route 
-              path={'/lists'}
-              component={ListsPage}
-            />
-            <Route 
               path={'/login'}
               component={LoginPage}
             />
@@ -46,8 +36,27 @@ class App extends Component {
               component={SignupPage}
             />
             <Route 
+              path={'/dashboard'}
+              component={DashboardPage}
+            />
+            <Route 
+              path={'/list/:list_id/list-items'}
+              //component={ListItemsPage}
+              render={routeProps => <ListItemsPage store={store} {...routeProps} />}
+            />
+            <Route 
+              path={'/lists'}
+              //component={ListsPage}
+              render={routeProps => <ListsPage store={store} {...routeProps} />}
+            />
+            <Route 
               path={'/teams'}
-              component={TeamsPage}
+              //component={TeamsPage}
+              render={routeProps => <TeamsPage store={store} {...routeProps} />}
+            />
+            <Route 
+              path={'/team/list/:list_id'}
+              render={routeProps => <TeamPage store={store} {...routeProps} />}
             />
             <Route 
               component={NotFoundPage}
