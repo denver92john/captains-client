@@ -1,10 +1,16 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import {Section} from '../../components/Utils/Utils';
-import ListItems from '../../components/ListItems/ListItems';
+import List from '../../components/List/List';
 
 const findList = (lists=[], list_id) => (
     lists.find(list => list.id === list_id)
+)
+
+const getItemsForList = (items=[], list_id) => (
+    (!list_id)
+        ? items
+        : items.filter(item => item.list_id === list_id)
 )
 
 class ListItemsPage extends Component {
@@ -16,6 +22,7 @@ class ListItemsPage extends Component {
         const {list_id} = this.props.match.params;
         const {list_items, lists} = this.props.store;
         const foundList = findList(lists, list_id)
+        const itemsForList = getItemsForList(list_items, list_id);
 
         return (
             <div>
@@ -27,7 +34,7 @@ class ListItemsPage extends Component {
                     </header>
                 </Section>
                 <Section>
-                    <ListItems list_id={list_id} list_items={list_items} />
+                    {<List items={itemsForList}/>}
                 </Section>
                 <Section>
                     <div className="wrapper">

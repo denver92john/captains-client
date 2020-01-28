@@ -15,7 +15,7 @@ class ListsPage extends Component {
                     </header>
                 </Section>
                 <Section>
-                    <List store={this.props.store}></List>
+                    <List items={this.props.store.lists}></List>
                 </Section>
                 <Section>
                     <div className="wrapper">

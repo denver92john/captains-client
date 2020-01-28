@@ -10,8 +10,10 @@ class ListTeams extends Component {
                 <ul className="named-list">
                     {lists.map(list =>
                         <Link to={`/team/list/${list.id}`} key={list.id} className="named-list-item">
-                       <li>{list.list_name}</li> 
-                    </Link>
+                            <li>
+                                {list.list_name}
+                            </li> 
+                        </Link>
                     )}
                 </ul>
             </div>

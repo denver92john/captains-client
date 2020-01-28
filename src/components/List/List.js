@@ -1,37 +1,27 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
-import {Form, Input, Button} from '../Utils/Utils';
-import icon from '../../img/wireframe-box.jpg';
+import FormList from '../FormList/FormList';
+import ListItem from '../ListItem/ListItem';
 import './List.css';
+
+/*
+<ListItem key={item.id} item_name={item.item_name} link={null} />
+<ListItem key={item.id} item_name={item.list_name} link={`/list/${item.id}/list-items`} />
+*/
 
 class List extends Component {
     render() {
-        const {lists} = this.props.store;
+        const {items} = this.props;
         return (
             <div className="wrapper list-component">
-                <Form>
-                    <div className="form-section">
-                        <Input 
-                            type="text"
-                            name="list-name"
-                            required
-                        />
-                        <Button
-                            type="submit"
-                        >
-                            Create
-                        </Button>
-                    </div>
-                </Form>
+                <FormList />
                 <ul className="named-list">
-                    {lists.map(list =>
-                        <li key={list.id} className="named-list-item">
-                            <Link to={`/list/${list.id}/list-items`}>{list.list_name}</Link>
-                            <form>
-                                <input type="image" src={icon} alt="edit button" className="list-item-button" />
-                                <input type="image" src={icon} alt="delete button" className="list-item-button" />
-                            </form>
-                        </li>
+                    {items.map(item =>
+                        <ListItem 
+                            key={item.id}
+                            //item_name={item.list_name}
+                            item={item}
+                            link={`/list/${item.id}/list-items`}
+                        />
                     )}
                 </ul>
             </div>
@@ -40,27 +30,3 @@ class List extends Component {
 }
 
 export default List;
-
-/*
-    <li>
-        <Link to="/list-items">List 1</Link>
-        <form>
-            <input type="image" src={icon} alt="edit button" className="list-item-button" />
-            <input type="image" src={icon} alt="delete button" className="list-item-button" />
-        </form>
-    </li>
-    <li>
-        <Link to="/list-items">List 2</Link>
-        <form>
-            <input type="image" src={icon} alt="edit button" className="list-item-button" />
-            <input type="image" src={icon} alt="delete button" className="list-item-button" />
-        </form>
-    </li>
-    <li>
-        <Link to="/list-items">List 3</Link>
-        <form className="list-item-buttons">
-            <input type="image" src={icon} alt="edit button" className="list-item-button" />
-            <input type="image" src={icon} alt="delete button" className="list-item-button" />
-        </form>
-    </li>
-*/
