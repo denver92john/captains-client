@@ -30,6 +30,7 @@ class TeamPage extends Component {
                     <header className="section-header">
                         <h1>Create Team Page</h1>
                         <h2>{foundList.list_name}</h2>
+                        <p>Select a number of teams to create and the names in your list will be randomly assigned to the specified number of teams.</p>
                     </header>
                 </Section>
                 <Section>

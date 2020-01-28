@@ -8,34 +8,32 @@ class List extends Component {
     render() {
         const {lists} = this.props.store;
         return (
-            <div className="wrapper">
-                <div className="list-component">
-                    <Form>
-                        <div className="form-section">
-                            <Input 
-                                type="text"
-                                name="list-name"
-                                required
-                            />
-                            <Button
-                                type="submit"
-                            >
-                                Create
-                            </Button>
-                        </div>
-                    </Form>
-                    <ul className="named-list">
-                        {lists.map(list =>
-                            <li key={list.id}>
-                                <Link to={`/list/${list.id}/list-items`}>{list.list_name}</Link>
-                                <form>
-                                    <input type="image" src={icon} alt="edit button" className="list-item-button" />
-                                    <input type="image" src={icon} alt="delete button" className="list-item-button" />
-                                </form>
-                            </li>
-                        )}
-                    </ul>
-                </div>
+            <div className="wrapper list-component">
+                <Form>
+                    <div className="form-section">
+                        <Input 
+                            type="text"
+                            name="list-name"
+                            required
+                        />
+                        <Button
+                            type="submit"
+                        >
+                            Create
+                        </Button>
+                    </div>
+                </Form>
+                <ul className="named-list">
+                    {lists.map(list =>
+                        <li key={list.id} className="named-list-item">
+                            <Link to={`/list/${list.id}/list-items`}>{list.list_name}</Link>
+                            <form>
+                                <input type="image" src={icon} alt="edit button" className="list-item-button" />
+                                <input type="image" src={icon} alt="delete button" className="list-item-button" />
+                            </form>
+                        </li>
+                    )}
+                </ul>
             </div>
         );
     }

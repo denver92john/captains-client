@@ -41,16 +41,6 @@ function createTeams(arr, numberOfTeams) {
     return result;
 }
 
-
-/*
-const shuffleArray = array => (
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-)
-*/
-
 class Team extends Component {
     render() {
         const {list_items} = this.props;
@@ -81,7 +71,7 @@ class Team extends Component {
 
                 <ul className="named-list">
                     {teams.map((team, index) =>
-                        <li key={index + 1}>
+                        <li key={index + 1} className="named-list-item">
                             <p>Team {index + 1}: {team.toString()}</p>
                         </li>
                     )}

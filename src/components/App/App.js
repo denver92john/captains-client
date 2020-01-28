@@ -5,9 +5,9 @@ import LandingPage from '../../routes/LandingPage/LandingPage';
 import ListItemsPage from '../../routes/ListItemsPage/ListItemsPage';
 import ListsPage from '../../routes/ListsPage/ListsPage';
 import LoginPage from '../../routes/LoginPage/LoginPage';
-import NotFoundPage from '../../routes/LoginPage/LoginPage';
+import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage';
 import SignupPage from '../../routes/SignupPage/SignupPage';
-import TeamsPage from '../../routes/TeamsPage/TeamsPage';
+import ListTeamsPage from '../../routes/ListTeamsPage/ListTeamsPage';
 import TeamPage from '../../routes/TeamPage/TeamPage';
 import Nav from '../Nav/Nav';
 import store from '../../dummy-store';
@@ -52,7 +52,7 @@ class App extends Component {
             <Route 
               path={'/teams'}
               //component={TeamsPage}
-              render={routeProps => <TeamsPage store={store} {...routeProps} />}
+              render={routeProps => <ListTeamsPage store={store} {...routeProps} />}
             />
             <Route 
               path={'/team/list/:list_id'}

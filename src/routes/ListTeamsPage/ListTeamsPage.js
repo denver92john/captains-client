@@ -1,17 +1,16 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import {Section} from '../../components/Utils/Utils';
-//import Teams from '../../components/Teams/Teams';
 import ListTeams from '../../components/ListTeams/ListTeams';
 
-class TeamsPage extends Component {
+class ListTeamsPage extends Component {
     render() {
         return (
             <div>
                 <Section className="hero">
                     <header className="section-header">
                         <h1>Team's Page</h1>
-                        <h2>Select a List to create some Teams</h2>
+                        <p>Select a list to create some teams.</p>
                     </header>
                 </Section>
                 <Section>
@@ -27,4 +26,4 @@ class TeamsPage extends Component {
     }
 }
 
-export default TeamsPage;
+export default ListTeamsPage;

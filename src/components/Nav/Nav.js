@@ -51,14 +51,6 @@ class Nav extends Component {
                     <li>
                         <Link
                             className="nav-link"
-                            to="/list/1/list-items"
-                        >
-                            List-Items
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
-                            className="nav-link"
                             to="/teams"
                         >
                             Teams

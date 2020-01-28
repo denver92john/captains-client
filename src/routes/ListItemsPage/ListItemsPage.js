@@ -23,6 +23,7 @@ class ListItemsPage extends Component {
                     <header className="section-header">
                         <h1>List Item's Page</h1>
                         <h2>{foundList.list_name}</h2>
+                        <p>To add a name to the list, type a name in the input and click the 'Create' button. To edit the name click the edit icon. To delete the name from the list click the delete icon.</p>
                     </header>
                 </Section>
                 <Section>

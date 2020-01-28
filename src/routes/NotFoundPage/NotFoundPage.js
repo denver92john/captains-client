@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
+import {Section} from '../../components/Utils/Utils';
 
 class NotFoundPage extends Component {
     render() {
         return (
-            <div></div>
+            <Section>
+                <h1>Page Not Found</h1>
+            </Section>
         );
     }
 }

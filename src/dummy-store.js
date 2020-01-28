@@ -47,7 +47,7 @@ export default {
         },
         {
             "id": "6",
-            "item_name": "Isabell",
+            "item_name": "Ava",
             "list_id": "2"
         },
         {

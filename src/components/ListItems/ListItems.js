@@ -32,12 +32,12 @@ class ListItems extends Component {
                 </Form>
                 <ul className="named-list">
                     {itemsForList.map(item =>
-                        <li key={item.id}>
+                        <li key={item.id} className="named-list-item">
                             <p>{item.item_name}</p>
-                            <form>
+                            <Form>
                                 <input type="image" src={icon} alt="edit button" className="list-item-button" />
                                 <input type="image" src={icon} alt="delete button" className="list-item-button" />
-                            </form>
+                            </Form>
                         </li>
                     )}
                 </ul>

@@ -9,6 +9,8 @@ class DashboardPage extends Component {
                 <Section className="hero">
                     <header className="section-header">
                         <h1>Dashboard Page</h1>
+                        <p>Select the 'Lists' icon to go to the Lists page.</p>
+                        <p>Select the 'Teams' icon to go to the Teams page.</p>
                     </header>
                 </Section>
                 <Section>
