@@ -17,7 +17,7 @@ function ListItem(props) {
         <li className="named-list-item">
             {content}
             <FormItem 
-                itemId={item.id} 
+                item={item} 
                 onPatch={onPatch} 
                 onDelete={onDelete} 
             />

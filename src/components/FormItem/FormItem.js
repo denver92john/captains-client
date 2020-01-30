@@ -3,18 +3,18 @@ import icon from '../../img/wireframe-box.jpg';
 import '../List/List.css';
 
 function FormItem(props) {
-    const {itemId, onPatch, onDelete} = props;
+    const {item, onPatch, onDelete} = props;
     return (
         <div>
             <button
                 type="button"
-                onClick={ev => onPatch(itemId, ev)}
+                onClick={ev => onPatch(item, ev)}
             >
                 <img src={icon} alt="edit button" className="list-item-button" />
             </button>
             <button
                 type="button"
-                onClick={ev => onDelete(itemId, ev)}
+                onClick={ev => onDelete(item, ev)}
             >
                 <img src={icon} alt="delete button" className="list-item-button"/>
             </button>

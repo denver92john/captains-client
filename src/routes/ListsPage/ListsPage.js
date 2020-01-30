@@ -38,14 +38,25 @@ class ListsPage extends Component {
             .catch(err => this.setState({error: err.error}))
     }
 
-    handlePatchList = (list_id, ev) => {
+    handlePatchList = (list, ev) => {
         ev.preventDefault();
-        console.log(`handlePatchList ran for list_id: ${list_id}`);
+        console.log(`handlePatchList ran for list.id: ${list.id}`);
+        this.setState({error: null})
+
+        //ListApiService.patchList()
     }
 
-    handleDeleteList = (list_id, ev) => {
+    handleDeleteList = (list, ev) => {
         ev.preventDefault();
-        console.log(`handleDeleteList ran for list_id: ${list_id}`)
+        console.log(`handleDeleteList ran for list.id: ${list.id}`)
+        this.setState({error: null})
+
+        ListApiService.deleteList(list.id)
+            .then(() => {
+                const lists = this.state.lists.filter(ls => ls.id !== list.id);
+                this.setState({lists})
+            })
+            .catch(err => this.setState({error: err.error}))
     }
 
     render() {

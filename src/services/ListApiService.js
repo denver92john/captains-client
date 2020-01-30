@@ -33,11 +33,29 @@ const ListApiService = {
         return fetch(`${config.API_ENDPOINT}/list/${listId}`, {
             method: 'DELETE',
             headers: {
-                'content-type': 'application/json',
                 'authorization': `bearer ${TokenService.getAuthToken()}`
             }
         })
-            .then()
+            .then(res => 
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res
+            )
+    },
+    patchList(patchedList, listId) {
+        return fetch(`${config.API_ENDPOINT}/list/${listId}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json',
+                'authorization': `bearer ${TokenService.getAuthToken()}`
+            },
+            body: JSON.stringify(patchedList)
+        })
+            .then(res => 
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res
+            )
     }
 }
 
