@@ -38,6 +38,16 @@ class ListsPage extends Component {
             .catch(err => this.setState({error: err.error}))
     }
 
+    handlePatchList = (list_id, ev) => {
+        ev.preventDefault();
+        console.log(`handlePatchList ran for list_id: ${list_id}`);
+    }
+
+    handleDeleteList = (list_id, ev) => {
+        ev.preventDefault();
+        console.log(`handleDeleteList ran for list_id: ${list_id}`)
+    }
+
     render() {
         console.log(this.state.lists);
         return (
@@ -55,6 +65,8 @@ class ListsPage extends Component {
                         //items={this.props.store.lists}
                         items={this.state.lists}
                         onPost={this.handlePostList}
+                        onPatch={this.handlePatchList}
+                        onDelete={this.handleDeleteList}
                     />
                 </Section>
                 <Section>
