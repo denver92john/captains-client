@@ -19,7 +19,27 @@ class ListsPage extends Component {
             .catch(err => this.setState({error: err.error}))
     }
 
+    handlePostList = ev => {
+        ev.preventDefault();
+        this.setState({error: null})
+        const {list_name} = ev.target;
+        const newList = {
+            list_name: list_name.value
+        }
+
+        ListApiService.postList(newList)
+            .then(res => {
+                list_name.value = ''
+                this.setState({lists: [...this.state.lists, res]})
+                /*this.setState(prevState => ({
+                    lists: [...prevState.lists, res]
+                }))*/
+            })
+            .catch(err => this.setState({error: err.error}))
+    }
+
     render() {
+        console.log(this.state.lists);
         return (
             <div>
                 <Section className="hero">
