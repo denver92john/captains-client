@@ -18,11 +18,11 @@ class App extends Component {
     user: null
   }
 
-  setUser = user => {
+  handleSetUser = user => {
     this.setState({user})
   }
 
-  clearUser = () => {
+  handleClearUser = () => {
     this.setState({user: null})
   }
 
@@ -30,7 +30,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <Nav />
+          <Nav onLogOut={this.handleClearUser} />
         </header>
         <main className="App-main">
           <Switch>
@@ -41,7 +41,12 @@ class App extends Component {
             />
             <Route 
               path={'/login'}
-              component={LoginPage}
+              render={routeProps => (
+                <LoginPage 
+                  setUser={this.handleSetUser}
+                  {...routeProps}
+                />
+              )}
             />
             <Route 
               path={'/signup'}
