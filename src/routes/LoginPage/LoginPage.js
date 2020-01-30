@@ -14,8 +14,9 @@ class LoginPage extends Component {
 
     state = {error: null}
 
-    handleLoginSuccess = () => {
-        const {history} = this.props;
+    handleLoginSuccess = (user) => {
+        const {history, setUser} = this.props;
+        setUser(user)
         history.push('/dashboard')
     }
 
@@ -32,8 +33,7 @@ class LoginPage extends Component {
                 username.value = ''
                 password.value = ''
                 TokenService.saveAuthToken(res.authToken)
-                console.log(res.user)
-                this.handleLoginSuccess()
+                this.handleLoginSuccess(res.user)
             })
             .catch(res => this.setState({error: res.error}))
     }

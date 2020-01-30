@@ -14,11 +14,23 @@ import store from '../../dummy-store';
 import './App.css';
 
 class App extends Component {
+  state = {
+    user: null
+  }
+
+  handleSetUser = user => {
+    this.setState({user})
+  }
+
+  handleClearUser = () => {
+    this.setState({user: null})
+  }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <Nav />
+          <Nav onLogOut={this.handleClearUser} />
         </header>
         <main className="App-main">
           <Switch>
@@ -29,7 +41,12 @@ class App extends Component {
             />
             <Route 
               path={'/login'}
-              component={LoginPage}
+              render={routeProps => (
+                <LoginPage 
+                  setUser={this.handleSetUser}
+                  {...routeProps}
+                />
+              )}
             />
             <Route 
               path={'/signup'}

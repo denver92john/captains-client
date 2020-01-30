@@ -1,9 +1,15 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import TokenService from '../../services/TokenService';
 import logo from '../../img/wireframe-box.jpg';
 import './Nav.css';
 
 class Nav extends Component {
+    handleLogOutClick = () => {
+        TokenService.clearAuthToken()
+        this.props.onLogOut()
+    }
+
     render() {
         return (
             <nav className="navbar">
@@ -54,6 +60,15 @@ class Nav extends Component {
                             to="/teams"
                         >
                             Teams
+                        </Link>
+                    </li>
+                    <li>
+                        <Link
+                            className="nav-link"
+                            onClick={this.handleLogOutClick}
+                            to="/"
+                        >
+                            Logout
                         </Link>
                     </li>
                 </ul>
