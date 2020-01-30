@@ -1,8 +1,19 @@
 import React, {Component} from 'react';
-import {Input, Button, Form, Label, Required, Section} from '../../components/Utils/Utils';
+import {Section} from '../../components/Utils/Utils';
+import FormAuth from '../../components/FormAuth/FormAuth';
 
 
 class LoginPage extends Component {
+    handleSubmit = ev => {
+        ev.preventDefault()
+        const {username, password} = ev.target;
+        const loggedUser = {
+            username: username.value,
+            password: password.value
+        }
+        console.log(loggedUser);
+    }
+
     render() {
         return (
             <div>
@@ -13,33 +24,8 @@ class LoginPage extends Component {
                 </Section>
                 <Section>
                     <div className="wrapper">
-                        <Form>
-                            <div className="form-section">
-                                <Label htmlFor="username-input"><Required />Username: </Label>
-                                <Input 
-                                    type="text"
-                                    id="username-input"
-                                    name="username"
-                                    required
-                                />
-                            </div>
-                            <div className="form-section">
-                                <Label htmlFor="password-input"><Required />Password: </Label>
-                                <Input 
-                                    type="password"
-                                    id="password-input"
-                                    name="password"
-                                    required
-                                />
-                            </div>
-
-                            <div className="form-buttons">
-                                <Button type="submit" className="button-submit">Submit</Button>
-                                <Button type="reset" className="button-reset">Reset</Button>
-                            </div>
-                        </Form>
+                        <FormAuth onSubmit={this.handleSubmit} />
                     </div>
-                    
                 </Section>
             </div>
         );
