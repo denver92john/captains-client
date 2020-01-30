@@ -14,6 +14,18 @@ import store from '../../dummy-store';
 import './App.css';
 
 class App extends Component {
+  state = {
+    user: null
+  }
+
+  setUser = user => {
+    this.setState({user})
+  }
+
+  clearUser = () => {
+    this.setState({user: null})
+  }
+
   render() {
     return (
       <div className="App">

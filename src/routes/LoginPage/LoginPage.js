@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import TokenService from '../../services/TokenService';
 import AuthApiService from '../../services/AuthApiService';
+//import UserContext from '../../contexts/UserContext';
 import {Section} from '../../components/Utils/Utils';
 import FormAuth from '../../components/FormAuth/FormAuth';
 
