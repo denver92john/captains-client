@@ -54,6 +54,7 @@ class ListsPage extends Component {
                         user_id={this.props.user_id} 
                         //items={this.props.store.lists}
                         items={this.state.lists}
+                        onPost={this.handlePostList}
                     />
                 </Section>
                 <Section>

@@ -10,10 +10,10 @@ import './List.css';
 
 class List extends Component {
     render() {
-        const {items} = this.props;
+        const {items, onPost} = this.props;
         return (
             <div className="wrapper list-component">
-                <FormList />
+                <FormList onPost={onPost} />
                 <ul className="named-list">
                     {items.map(item =>
                         <ListItem 
