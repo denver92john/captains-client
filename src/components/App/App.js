@@ -77,7 +77,7 @@ class App extends Component {
               //render={routeProps => <ListsPage store={store} {...routeProps} />}
               render={routeProps => (
                 <ListsPage 
-                  store={store}
+                  //store={store}
                   user_id={this.state.user.id}
                   {...routeProps}
                 />

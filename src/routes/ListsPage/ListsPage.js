@@ -1,9 +1,24 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import ListApiService from '../../services/ListApiService';
 import {Section} from '../../components/Utils/Utils';
 import List from '../../components/List/List';
 
 class ListsPage extends Component {
+    state = {
+        lists: [],
+        error: null
+    }
+
+    componentDidMount() {
+        ListApiService.getUserLists()
+            .then(lists => {
+                this.setState({error: null})
+                this.setState({lists})
+            })
+            .catch(err => this.setState({error: err.error}))
+    }
+
     render() {
         return (
             <div>
@@ -15,7 +30,11 @@ class ListsPage extends Component {
                     </header>
                 </Section>
                 <Section>
-                    <List items={this.props.store.lists}></List>
+                    <List 
+                        user_id={this.props.user_id} 
+                        //items={this.props.store.lists}
+                        items={this.state.lists}
+                    />
                 </Section>
                 <Section>
                     <div className="wrapper">
