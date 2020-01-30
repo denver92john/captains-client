@@ -1,8 +1,46 @@
 import React, {Component} from 'react';
-import {Input, Button, Form, Label, Required, Section} from '../../components/Utils/Utils';
+import AuthApiService from '../../services/AuthApiService';
+import {Input, Label, Required, Section} from '../../components/Utils/Utils';
+import FormAuth from '../../components/FormAuth/FormAuth';
 
 class SignupPage extends Component {
+    static defaultProps = {
+        history: {
+            push: () => {}
+        }
+    }
+
+    state = {error: null}
+
+    handleRegistrationSuccess = () => {
+        const {history} = this.props;
+        history.push('/login')
+    }
+
+    handleSubmit = ev => {
+        ev.preventDefault()
+        this.setState({error: null})
+        const {username, password, re_password} = ev.target;
+        const newUser = {
+            username: username.value,
+            password: password.value,
+            re_password: re_password.value
+        }
+        //console.log(newUser);
+        AuthApiService.postUser(newUser)
+            .then(() => {
+                username.value = ''
+                password.value = ''
+                re_password.value = ''
+                this.handleRegistrationSuccess()
+            })
+            .catch(res => {
+                this.setState({error: res.error})
+            })
+    }
+
     render() {
+        //const {error} = this.state;
         return (
             <div>
                 <Section className="hero">
@@ -12,34 +50,18 @@ class SignupPage extends Component {
                 </Section>
                 <Section>
                     <div className="wrapper">
-                        <Form>
+                        <FormAuth onSubmit={this.handleSubmit}>
                             <div className="form-section">
-                                <Label htmlFor="username-input"><Required />Username: </Label>
-                                <Input 
-                                    type="text"
-                                    id="username-input"
-                                    name="username"
-                                    placeholder="KwahiLeonard"
-                                    required
-                                />
-                            </div>
-                            <div className="form-section">
-                                <Label htmlFor="password-input"><Required />Password: </Label>
+                                <Label htmlFor="re_password-input"><Required/>Re-enter Password:</Label>
                                 <Input 
                                     type="password"
-                                    id="password-input"
-                                    name="password"
+                                    id="re_password-input"
+                                    name="re_password"
                                     required
                                 />
                             </div>
-
-                            <div className="form-buttons">
-                                <Button type="submit" className="button-submit">Submit</Button>
-                                <Button type="reset" className="button-reset">Reset</Button>
-                            </div>
-                        </Form>
+                        </FormAuth>
                     </div>
-                    
                 </Section>
             </div>
         );
