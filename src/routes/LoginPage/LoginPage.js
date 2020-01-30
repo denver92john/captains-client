@@ -1,9 +1,24 @@
 import React, {Component} from 'react';
+import TokenService from '../../services/TokenService';
+import AuthApiService from '../../services/AuthApiService';
 import {Section} from '../../components/Utils/Utils';
 import FormAuth from '../../components/FormAuth/FormAuth';
 
 
 class LoginPage extends Component {
+    static defaultProps = {
+        history: {
+            push: () => {}
+        }
+    }
+
+    state = {error: null}
+
+    handleLoginSuccess = () => {
+        const {history} = this.props;
+        history.push('/dashboard')
+    }
+
     handleSubmit = ev => {
         ev.preventDefault()
         const {username, password} = ev.target;
@@ -11,7 +26,16 @@ class LoginPage extends Component {
             username: username.value,
             password: password.value
         }
-        console.log(loggedUser);
+        
+        AuthApiService.postLogin(loggedUser)
+            .then(res => {
+                username.value = ''
+                password.value = ''
+                TokenService.saveAuthToken(res.authToken)
+                console.log(res.user_id)
+                this.handleLoginSuccess()
+            })
+            .catch(res => this.setState({error: res.error}))
     }
 
     render() {
