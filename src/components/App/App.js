@@ -15,7 +15,11 @@ import './App.css';
 
 class App extends Component {
   state = {
-    user: null
+    //user: null
+    user: {
+      id: 1,
+      username: "JDenver"
+    }
   }
 
   handleSetUser = user => {
@@ -54,7 +58,13 @@ class App extends Component {
             />
             <Route 
               path={'/dashboard'}
-              component={DashboardPage}
+              //component={DashboardPage}
+              render={routeProps => (
+                <DashboardPage 
+                  user={this.state.user}
+                  {...routeProps}
+                />
+              )}
             />
             <Route 
               path={'/list/:list_id/list-items'}
@@ -64,7 +74,14 @@ class App extends Component {
             <Route 
               path={'/lists'}
               //component={ListsPage}
-              render={routeProps => <ListsPage store={store} {...routeProps} />}
+              //render={routeProps => <ListsPage store={store} {...routeProps} />}
+              render={routeProps => (
+                <ListsPage 
+                  store={store}
+                  user_id={this.state.user.id}
+                  {...routeProps}
+                />
+              )}
             />
             <Route 
               path={'/teams'}
