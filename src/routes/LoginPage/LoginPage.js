@@ -32,7 +32,7 @@ class LoginPage extends Component {
                 username.value = ''
                 password.value = ''
                 TokenService.saveAuthToken(res.authToken)
-                console.log(res.user_id)
+                console.log(res.user)
                 this.handleLoginSuccess()
             })
             .catch(res => this.setState({error: res.error}))
