@@ -1,10 +1,66 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import ListApiService from '../../services/ListApiService';
 import {Section} from '../../components/Utils/Utils';
 import List from '../../components/List/List';
 
 class ListsPage extends Component {
+    state = {
+        lists: [],
+        error: null
+    }
+
+    componentDidMount() {
+        ListApiService.getUserLists()
+            .then(lists => {
+                this.setState({error: null})
+                this.setState({lists})
+            })
+            .catch(err => this.setState({error: err.error}))
+    }
+
+    handlePostList = ev => {
+        ev.preventDefault();
+        this.setState({error: null})
+        const {list_name} = ev.target;
+        const newList = {
+            list_name: list_name.value
+        }
+
+        ListApiService.postList(newList)
+            .then(res => {
+                list_name.value = ''
+                this.setState({lists: [...this.state.lists, res]})
+                /*this.setState(prevState => ({
+                    lists: [...prevState.lists, res]
+                }))*/
+            })
+            .catch(err => this.setState({error: err.error}))
+    }
+
+    handlePatchList = (list, ev) => {
+        ev.preventDefault();
+        console.log(`handlePatchList ran for list.id: ${list.id}`);
+        this.setState({error: null})
+
+        //ListApiService.patchList()
+    }
+
+    handleDeleteList = (list, ev) => {
+        ev.preventDefault();
+        console.log(`handleDeleteList ran for list.id: ${list.id}`)
+        this.setState({error: null})
+
+        ListApiService.deleteList(list.id)
+            .then(() => {
+                const lists = this.state.lists.filter(ls => ls.id !== list.id);
+                this.setState({lists})
+            })
+            .catch(err => this.setState({error: err.error}))
+    }
+
     render() {
+        console.log(this.state.lists);
         return (
             <div>
                 <Section className="hero">
@@ -15,7 +71,14 @@ class ListsPage extends Component {
                     </header>
                 </Section>
                 <Section>
-                    <List items={this.props.store.lists}></List>
+                    <List 
+                        user_id={this.props.user_id} 
+                        //items={this.props.store.lists}
+                        items={this.state.lists}
+                        onPost={this.handlePostList}
+                        onPatch={this.handlePatchList}
+                        onDelete={this.handleDeleteList}
+                    />
                 </Section>
                 <Section>
                     <div className="wrapper">
