@@ -5,16 +5,23 @@ import {Section} from '../../components/Utils/Utils';
 import List from '../../components/List/List';
 
 class ListsPage extends Component {
-    state = {
-        lists: [],
-        error: null
+    constructor(props) {
+        super(props);
+        this.state = {
+            lists: [],
+            error: null
+        }
     }
 
     componentDidMount() {
         ListApiService.getUserLists()
             .then(lists => {
-                this.setState({error: null})
-                this.setState({lists})
+                /*this.setState({error: null})
+                this.setState({lists})*/
+                this.setState({
+                    lists,
+                    error: null
+                })
             })
             .catch(err => this.setState({error: err.error}))
     }
@@ -22,14 +29,14 @@ class ListsPage extends Component {
     handlePostList = ev => {
         ev.preventDefault();
         this.setState({error: null})
-        const {list_name} = ev.target;
+        const {item_name} = ev.target;
         const newList = {
-            list_name: list_name.value
+            list_name: item_name.value
         }
 
         ListApiService.postList(newList)
             .then(res => {
-                list_name.value = ''
+                item_name.value = ''
                 this.setState({lists: [...this.state.lists, res]})
                 /*this.setState(prevState => ({
                     lists: [...prevState.lists, res]

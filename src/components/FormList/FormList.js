@@ -6,7 +6,7 @@ function FormList(props) {
         <form onSubmit={props.onPost}>
             <Input 
                 type="text"
-                name="list_name"
+                name="item_name"
                 required
             />
             <Button
