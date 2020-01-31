@@ -69,7 +69,12 @@ class App extends Component {
             <Route 
               path={'/list/:list_id/list-items'}
               //component={ListItemsPage}
-              render={routeProps => <ListItemsPage store={store} {...routeProps} />}
+              //render={routeProps => <ListItemsPage store={store} {...routeProps} />}
+              render={routeProps => (
+                <ListItemsPage 
+                  {...routeProps}
+                />
+              )}
             />
             <Route 
               path={'/lists'}

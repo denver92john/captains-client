@@ -5,16 +5,23 @@ import {Section} from '../../components/Utils/Utils';
 import List from '../../components/List/List';
 
 class ListsPage extends Component {
-    state = {
-        lists: [],
-        error: null
+    constructor(props) {
+        super(props);
+        this.state = {
+            lists: [],
+            error: null
+        }
     }
 
     componentDidMount() {
         ListApiService.getUserLists()
             .then(lists => {
-                this.setState({error: null})
-                this.setState({lists})
+                /*this.setState({error: null})
+                this.setState({lists})*/
+                this.setState({
+                    lists,
+                    error: null
+                })
             })
             .catch(err => this.setState({error: err.error}))
     }
