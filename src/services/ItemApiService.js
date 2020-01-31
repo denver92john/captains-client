@@ -14,6 +14,21 @@ const ItemApiService = {
                     : res.json()
             )
     },
+    postItem(newItem) {
+        return fetch(`${config.API_ENDPOINT}/item`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+                'authorization': `bearer ${TokenService.getAuthToken()}`
+            },
+            body: JSON.stringify(newItem)
+        })
+            .then(res =>
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res.json()
+            )
+    }
 }
 
 export default ItemApiService;

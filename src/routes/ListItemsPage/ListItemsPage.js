@@ -37,6 +37,21 @@ class ListItemsPage extends Component {
     handlePostItem = ev => {
         ev.preventDefault();
         console.log(`handlePostItem ran`);
+        this.setState({error: null})
+        const {item_name} = ev.target;
+        const newItem = {
+            item_name: item_name.value,
+            list_id: this.state.list.id
+        }
+        
+        ItemApiService.postItem(newItem)
+            .then(res => {
+                item_name.value = ''
+                this.setState(prevState => ({
+                    items: [...prevState.items, res]
+                }))
+            })
+            .catch(err => this.setState({error: err.error}))
     }
 
     handlePatchItem = (item, ev) => {
@@ -54,8 +69,9 @@ class ListItemsPage extends Component {
         const {list_items, lists} = this.props.store;
         const foundList = findList(lists, list_id)
         const itemsForList = getItemsForList(list_items, list_id);*/
-        console.log(this.state);
+        //console.log(this.state);
         const {list, items} = this.state;
+        console.log(items);
 
         return (
             <div>

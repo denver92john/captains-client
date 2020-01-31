@@ -29,14 +29,14 @@ class ListsPage extends Component {
     handlePostList = ev => {
         ev.preventDefault();
         this.setState({error: null})
-        const {list_name} = ev.target;
+        const {item_name} = ev.target;
         const newList = {
-            list_name: list_name.value
+            list_name: item_name.value
         }
 
         ListApiService.postList(newList)
             .then(res => {
-                list_name.value = ''
+                item_name.value = ''
                 this.setState({lists: [...this.state.lists, res]})
                 /*this.setState(prevState => ({
                     lists: [...prevState.lists, res]
