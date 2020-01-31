@@ -57,22 +57,26 @@ class ListItemsPage extends Component {
     handlePatchItem = (item, ev) => {
         ev.preventDefault();
         console.log(`handlePatchItem ran for: ${item.id}`);
+        this.setState({error: null})
+
+        //ItemApiService.patchItem()
     }
 
     handleDeleteItem = (item, ev) => {
         ev.preventDefault();
         console.log(`handleDeleteItem ran for: ${item.id}`);
+        this.setState({error: null})
+
+        ItemApiService.deleteItem(item.id)
+            .then(() => {
+                const items = this.state.items.filter(itm => itm.id !== item.id);
+                this.setState({items})
+            })
+            .catch(err => this.setState({error: err.error}))
     }
 
     render() {
-        /*const {list_id} = this.props.match.params;
-        const {list_items, lists} = this.props.store;
-        const foundList = findList(lists, list_id)
-        const itemsForList = getItemsForList(list_items, list_id);*/
-        //console.log(this.state);
         const {list, items} = this.state;
-        console.log(items);
-
         return (
             <div>
                 <Section className="hero">

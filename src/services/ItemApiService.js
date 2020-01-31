@@ -28,6 +28,34 @@ const ItemApiService = {
                     ? res.json().then(e => Promise.reject(e))
                     : res.json()
             )
+    },
+    deleteItem(itemId) {
+        return fetch(`${config.API_ENDPOINT}/item/${itemId}`, {
+            method: 'DELETE',
+            headers: {
+                'authorization': `bearer ${TokenService.getAuthToken()}`
+            }
+        })
+            .then(res =>
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))    
+                    : res
+            )
+    },
+    patchItem(patchedItem, itemId) {
+        return fetch(`${config.API_ENDPOINT}/item/${itemId}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json',
+                'authorization': `bearer ${TokenService.getAuthToken()}`
+            },
+            body: JSON.stringify(patchedItem)
+        })
+            .then(res => 
+                (!res.ok)
+                    ? res.json().then(e => Promise.reject(e))
+                    : res
+            )
     }
 }
 
