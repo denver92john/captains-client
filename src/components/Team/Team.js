@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import {Form, Input, Button} from '../Utils/Utils';
+import {Input, Button} from '../Utils/Utils';
 import './Team.css';
 
 function createNamesArray(array) {
     const nameArray = [];
-    array.map(item => nameArray.push(item.item_name))
+    array.map(item => nameArray.push(` ${item.item_name}`))
     return nameArray;
 }
 
@@ -42,41 +42,78 @@ function createTeams(arr, numberOfTeams) {
 }
 
 class Team extends Component {
-    render() {
-        const {list_items} = this.props;
-        const names = createNamesArray(list_items);
-        const newList = shuffleArray(names);
-        const teams = createTeams(newList, 2);
+    state = {
+        names: [],
+        teams: []
+    }
 
+    // do i need to use shouldComponentUpdate()??
+    componentDidUpdate(oldProps) {
+        if(oldProps.items !== this.props.items) {
+            //console.log('yes they diff')
+            const listNames = createNamesArray(this.props.items)
+            //console.log(listNames)
+            this.setState({names: listNames})
+        }
+    }
+
+    handleSubmit = ev => {
+        ev.preventDefault();
+        const {number_teams} = ev.target;
+        const shuffledList = shuffleArray(this.state.names);
+        const newTeams = createTeams(shuffledList, number_teams.value);
+        this.setState({teams: newTeams})
+    }
+
+    renderForm() {
         return (
-            <div className="wrapper teams-component">
-                <Form>
+            <form onSubmit={this.handleSubmit}>
                     <div className="form-section">
                         <label htmlFor="number-teams-input">Number of teams (2-10): </label>
                         <Input 
                             type="number"
                             id="number-teams-input"
-                            name="number-teams"
+                            name="number_teams"
                             min="2"
                             max="10"
-                            step="2"
-                            //value="2"
                         />
                     </div>
 
                     <div className="form-buttons">
                         <Button type="submit">Create Teams</Button>
                     </div>
-                </Form>
+                </form>
+        );
+    }
 
-                <ul className="named-list">
-                    {teams.map((team, index) =>
-                        <li key={index + 1} className="named-list-item">
-                            <p>Team {index + 1}: {team.toString()}</p>
-                        </li>
-                    )}
-                </ul>
-            </div>
+    renderTeamList() {
+        const {teams} = this.state;
+        return (
+            <ul className="named-list">
+                {teams.map((team, index) =>
+                    <li key={index} className="named-list-item">
+                        <p>Team {index + 1}: {team.toString()}</p>
+                    </li>
+                )}
+            </ul>
+        );
+    }
+
+    render() {
+        const {error} = this.props;
+        let content;
+        if(error) {
+            content = <p>There wasn an error</p>
+        } else {
+            content = 
+                <div className="wrapper teams-component">
+                    {this.renderForm()}
+                    {this.renderTeamList()}
+                </div>
+        }
+
+        return (
+            <>{content}</>
         );
     }
 }

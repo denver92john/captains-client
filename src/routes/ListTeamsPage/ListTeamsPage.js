@@ -1,9 +1,26 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import ListApiService from '../../services/ListApiService';
+import ListContext from '../../contexts/ListContext';
 import {Section} from '../../components/Utils/Utils';
 import ListTeams from '../../components/ListTeams/ListTeams';
 
 class ListTeamsPage extends Component {
+    static contextType = ListContext;
+
+    componentDidMount() {
+        this.context.clearError();
+        ListApiService.getUserLists()
+            .then(lists => {
+                this.context.setLists(lists)
+            })
+            .catch(this.context.setError)
+    }
+
+    componentWillUnmount() {
+        this.context.clearLists()
+    }
+
     render() {
         return (
             <div>
@@ -14,7 +31,7 @@ class ListTeamsPage extends Component {
                     </header>
                 </Section>
                 <Section>
-                    <ListTeams store={this.props.store} />
+                    <ListTeams items={this.context.lists} />
                 </Section>
                 <Section>
                     <div className="wrapper">

@@ -1,40 +1,49 @@
 import React, {Component} from 'react';
+import ListApiService from '../../services/ListApiService';
+import ItemApiService from '../../services/ItemApiService';
+import ItemContext from '../../contexts/ItemContext';
 import {Section} from '../../components/Utils/Utils';
 import Team from '../../components/Team/Team';
-
-const findList = (lists=[], list_id) => (
-    lists.find(list => list.id === list_id)
-)
-
-
-const getItemsForList = (items=[], list_id) => (
-    (!list_id)
-        ? items
-        : items.filter(item => item.list_id === list_id)
-)
 
 class TeamPage extends Component {
     static defaultProps = {
         match: {params: {}}
     }
 
+    static contextType = ItemContext;
+
+    componentDidMount() {
+        this.context.clearError();
+        ListApiService.getList(this.props.match.params.list_id)
+            .then(list => {
+                ItemApiService.getListItems(list.id)
+                    .then(items => {
+                        this.context.setList(list)
+                        this.context.setItems(items)
+                    })
+                    .catch(this.context.setError)
+            })
+            .catch(this.context.setError)
+    }
+
+    componentWillUnmount() {
+        this.context.clearList()
+    }
+
     render() {
-        const {list_id} = this.props.match.params;
-        const {list_items, lists} = this.props.store;
-        const foundList = findList(lists, list_id);
-        const listItems = getItemsForList(list_items, list_id);
+        const {list, items, error} = this.context;
 
         return (
             <div>
                 <Section className="hero">
                     <header className="section-header">
                         <h1>Create Team Page</h1>
-                        <h2>{foundList.list_name}</h2>
+                        <h2>{list.list_name}</h2>
                         <p>Select a number of teams to create and the names in your list will be randomly assigned to the specified number of teams.</p>
                     </header>
                 </Section>
                 <Section>
-                    <Team list_id={list_id} list_items={listItems} />
+                    <Team items={items} error={error} />
                 </Section>
             </div>
         );
