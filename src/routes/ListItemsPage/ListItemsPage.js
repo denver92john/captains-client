@@ -2,62 +2,57 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import ListApiService from '../../services/ListApiService';
 import ItemApiService from '../../services/ItemApiService';
+import ItemContext from '../../contexts/ItemContext';
 import {Section} from '../../components/Utils/Utils';
 import List from '../../components/List/List';
 
 class ListItemsPage extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            list: {},
-            items: [],
-            error: null
-        }
-    }
+    static contextType = ItemContext;
 
     static defaultProps = {
         match: {params: {}}
     }
 
     componentDidMount() {
+        this.context.clearError();
         ListApiService.getList(this.props.match.params.list_id)
             .then(list => {
                 ItemApiService.getListItems(list.id)
                     .then(items => {
-                        this.setState({
-                            list,
-                            items
-                        })
+                        this.context.setList(list)
+                        this.context.setItems(items)
                     })
-                    .catch(err => this.setState({error: err.error}))
+                    .catch(this.context.setError)
             })
-            .catch(err => this.setState({error: err.error}))
+            .catch(this.context.setError)
+    }
+
+    componentWillUnmount() {
+        this.context.clearList()
     }
 
     handlePostItem = ev => {
         ev.preventDefault();
         console.log(`handlePostItem ran`);
-        this.setState({error: null})
+        this.context.clearError();
         const {item_name} = ev.target;
         const newItem = {
             item_name: item_name.value,
-            list_id: this.state.list.id
+            list_id: this.context.list.id
         }
         
         ItemApiService.postItem(newItem)
-            .then(res => {
+            .then(item => {
                 item_name.value = ''
-                this.setState(prevState => ({
-                    items: [...prevState.items, res]
-                }))
+                this.context.addItem(item);
             })
-            .catch(err => this.setState({error: err.error}))
+            .catch(this.context.setError)
     }
 
     handlePatchItem = (item, ev) => {
         ev.preventDefault();
         console.log(`handlePatchItem ran for: ${item.id}`);
-        this.setState({error: null})
+        this.context.clearError();
 
         //ItemApiService.patchItem()
     }
@@ -65,18 +60,19 @@ class ListItemsPage extends Component {
     handleDeleteItem = (item, ev) => {
         ev.preventDefault();
         console.log(`handleDeleteItem ran for: ${item.id}`);
-        this.setState({error: null})
+        this.context.clearError();
 
         ItemApiService.deleteItem(item.id)
             .then(() => {
-                const items = this.state.items.filter(itm => itm.id !== item.id);
-                this.setState({items})
+                this.context.deleteItem(item.id)
             })
-            .catch(err => this.setState({error: err.error}))
+            .catch(this.context.setError)
     }
 
     render() {
-        const {list, items} = this.state;
+        //const {list, items} = this.state;
+        console.log(this.context);
+        const {list, items} = this.context;
         return (
             <div>
                 <Section className="hero">

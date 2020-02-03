@@ -4,7 +4,8 @@ import './Team.css';
 
 function createNamesArray(array) {
     const nameArray = [];
-    array.map(item => nameArray.push(item.item_name))
+    //array.map(item => nameArray.push(item.item_name))
+    array.map(item => nameArray.push(` ${item.item_name}`))
     return nameArray;
 }
 
@@ -43,10 +44,10 @@ function createTeams(arr, numberOfTeams) {
 
 class Team extends Component {
     render() {
-        const {list_items} = this.props;
-        const names = createNamesArray(list_items);
-        const newList = shuffleArray(names);
-        const teams = createTeams(newList, 2);
+        const {items} = this.props;
+        const names = createNamesArray(items);
+        const shuffledList = shuffleArray(names);
+        const teams = createTeams(shuffledList, 2);
 
         return (
             <div className="wrapper teams-component">

@@ -22,7 +22,11 @@ class ListsPage extends Component {
             .then(lists => {
                 this.context.setLists(lists)
             })
-            .catch(err => this.context.setError(err))
+            .catch(this.context.setError)
+    }
+
+    componentWillUnmount() {
+        this.context.clearLists()
     }
 
     handlePostList = ev => {
@@ -38,7 +42,7 @@ class ListsPage extends Component {
                 item_name.value = ''
                 this.context.addList(list)
             })
-            .catch(err => this.context.setError(err))
+            .catch(this.context.setError)
     }
 
     handlePatchList = (list, ev) => {
@@ -56,10 +60,9 @@ class ListsPage extends Component {
 
         ListApiService.deleteList(list.id)
             .then(() => {
-                const lists = this.context.lists.filter(ls => ls.id !== list.id);
-                this.context.setLists(lists);
+                this.context.deleteList(list.id)
             })
-            .catch(err => this.context.setError(err))
+            .catch(this.context.setError)
     }
 
     render() {

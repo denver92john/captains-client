@@ -14,7 +14,11 @@ class ListTeamsPage extends Component {
             .then(lists => {
                 this.context.setLists(lists)
             })
-            .catch(err => this.context.setError(err))
+            .catch(this.context.setError)
+    }
+
+    componentWillUnmount() {
+        this.context.clearLists()
     }
 
     render() {

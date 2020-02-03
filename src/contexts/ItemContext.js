@@ -29,7 +29,9 @@ export class ItemProvider extends Component {
         error: null
     }
 
-    setList = list => {}
+    setList = list => {
+        this.setState({list})
+    }
 
     setItems = items => {
         this.setState({items})

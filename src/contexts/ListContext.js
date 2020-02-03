@@ -43,7 +43,7 @@ export class ListProvider extends Component {
     }
 
     clearLists = () => {
-        this.setState({lists: []})
+        this.setLists([])
     }
     
     clearError = () => {
