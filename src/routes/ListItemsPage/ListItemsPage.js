@@ -71,7 +71,6 @@ class ListItemsPage extends Component {
 
     render() {
         //const {list, items} = this.state;
-        console.log(this.context);
         const {list, items} = this.context;
         return (
             <div>

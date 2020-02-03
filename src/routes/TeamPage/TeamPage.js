@@ -31,7 +31,7 @@ class TeamPage extends Component {
     }
 
     render() {
-        const {list, items} = this.context;
+        const {list, items, error} = this.context;
 
         return (
             <div>
@@ -43,7 +43,7 @@ class TeamPage extends Component {
                     </header>
                 </Section>
                 <Section>
-                    <Team items={items} />
+                    <Team items={items} error={error} />
                 </Section>
             </div>
         );

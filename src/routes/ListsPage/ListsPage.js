@@ -66,7 +66,6 @@ class ListsPage extends Component {
     }
 
     render() {
-        console.log(this.context.lists);
         return (
             <div>
                 <Section className="hero">
