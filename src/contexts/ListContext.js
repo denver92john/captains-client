@@ -20,19 +20,35 @@ export class ListProvider extends Component {
         error: null
     }
 
-    setLists = lists => {}
+    setLists = lists => {
+        this.setState({lists})
+    }
 
-    setError = error => {}
+    setError = error => {
+        console.error(error)
+        this.setState({error})
+    }
 
-    addList = list => {}
+    addList = list => {
+        this.setState(prevState => ({
+            lists: [...prevState.lists, list]
+        }))
+    }
 
     patchList = list => {}
 
-    deleteList = list => {}
+    deleteList = listId => {
+        const lists = this.state.lists.filter(ls => ls.id !== listId);
+        this.setState({lists})
+    }
 
-    clearLists = () => {}
+    clearLists = () => {
+        this.setState({lists: []})
+    }
     
-    clearError = () => {}
+    clearError = () => {
+        this.setState({error: null})
+    }
 
     render() {
         const contextValue = {

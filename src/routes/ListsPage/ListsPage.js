@@ -67,7 +67,7 @@ class ListsPage extends Component {
     }
 
     render() {
-        console.log(this.state.lists);
+        //console.log(this.state.lists);
         return (
             <div>
                 <Section className="hero">
