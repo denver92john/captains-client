@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import {Route, Switch} from 'react-router-dom';
+import PrivateRoute from '../Utils/PrivateRoute';
+import PublicOnlyRoute from '../Utils/PublicOnlyRoute';
 import DashboardPage from '../../routes/DashboardPage/DashboardPage';
 import LandingPage from '../../routes/LandingPage/LandingPage';
 import ListItemsPage from '../../routes/ListItemsPage/ListItemsPage';
@@ -10,16 +12,15 @@ import SignupPage from '../../routes/SignupPage/SignupPage';
 import ListTeamsPage from '../../routes/ListTeamsPage/ListTeamsPage';
 import TeamPage from '../../routes/TeamPage/TeamPage';
 import Nav from '../Nav/Nav';
-import store from '../../dummy-store';
 import './App.css';
 
 class App extends Component {
   state = {
-    //user: null
-    user: {
+    user: null
+    /*user: {
       id: 1,
       username: "JDenver"
-    }
+    }*/
   }
 
   handleSetUser = user => {
@@ -43,6 +44,7 @@ class App extends Component {
               path={'/'}
               component={LandingPage}
             />
+            {/*
             <Route 
               path={'/login'}
               render={routeProps => (
@@ -52,13 +54,19 @@ class App extends Component {
                 />
               )}
             />
-            <Route 
+            */}
+            <PublicOnlyRoute
+              path={'/login'}
+              component={LoginPage}
+              setUser={this.handleSetUser}
+            />
+            <PublicOnlyRoute
               path={'/signup'}
               component={SignupPage}
             />
+            {/*
             <Route 
               path={'/dashboard'}
-              //component={DashboardPage}
               render={routeProps => (
                 <DashboardPage 
                   user={this.state.user}
@@ -66,36 +74,54 @@ class App extends Component {
                 />
               )}
             />
+            */}
+            <PrivateRoute
+              path={'/dashboard'}
+              component={DashboardPage}
+              user={this.state.user}
+            />
+
+
+            {/*
             <Route 
               path={'/list/:list_id/list-items'}
-              //component={ListItemsPage}
-              //render={routeProps => <ListItemsPage store={store} {...routeProps} />}
               render={routeProps => (
                 <ListItemsPage 
                   {...routeProps}
                 />
               )}
             />
+            */}
+            {/* --- PrivateRoute wasn't passing along the :/list_id param unless {...props} is under the Route  --- */}
+            <PrivateRoute
+              path={'/list/:list_id/list-items'}
+              component={ListItemsPage}
+            />
+
+
+            {/*
             <Route 
               path={'/lists'}
-              //component={ListsPage}
-              //render={routeProps => <ListsPage store={store} {...routeProps} />}
               render={routeProps => (
                 <ListsPage 
-                  //store={store}
-                  user_id={this.state.user.id}
                   {...routeProps}
                 />
               )}
             />
-            <Route 
-              path={'/teams'}
-              //component={TeamsPage}
-              render={routeProps => <ListTeamsPage store={store} {...routeProps} />}
+            */}
+            <PrivateRoute
+              path={'/lists'}
+              component={ListsPage}
             />
-            <Route 
+
+
+            <PrivateRoute 
+              path={'/teams'}
+              component={ListTeamsPage}
+            />
+            <PrivateRoute 
               path={'/team/list/:list_id'}
-              render={routeProps => <TeamPage store={store} {...routeProps} />}
+              component={TeamPage}
             />
             <Route 
               component={NotFoundPage}

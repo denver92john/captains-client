@@ -10,6 +10,53 @@ class Nav extends Component {
         this.props.onLogOut()
     }
 
+    renderLoggedIn = () => {
+        return (
+            <ul className="nav-links">
+                <li>
+                    <Link
+                        className="nav-link"
+                        to="/dashboard"
+                    >
+                        Dashboard
+                    </Link>
+                </li>
+                <li>
+                    <Link
+                        className="nav-link"
+                        onClick={this.handleLogOutClick}
+                        to="/"
+                    >
+                        Logout
+                    </Link>
+                </li>
+            </ul>
+        );
+    }
+
+    renderLoggedOut = () => {
+        return (
+            <ul className="nav-links">
+                <li>
+                    <Link
+                        className="nav-link"
+                        to="/signup"
+                    >
+                        Signup
+                    </Link>
+                </li>
+                <li>
+                    <Link
+                        className="nav-link"
+                        to="/login"
+                    >
+                        Login
+                    </Link>
+                </li>
+            </ul>
+        );
+    }
+
     render() {
         return (
             <nav className="navbar">
@@ -21,57 +68,9 @@ class Nav extends Component {
                     </Link>
                 </div>
 
-                <ul className="nav-links">
-                    <li>
-                        <Link
-                            className="nav-link"
-                            to="/signup"
-                        >
-                            Signup
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
-                            className="nav-link"
-                            to="/login"
-                        >
-                            Login
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
-                            className="nav-link"
-                            to="/dashboard"
-                        >
-                            Dashboard
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
-                            className="nav-link"
-                            to="/lists"
-                        >
-                            Lists
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
-                            className="nav-link"
-                            to="/teams"
-                        >
-                            Teams
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
-                            className="nav-link"
-                            onClick={this.handleLogOutClick}
-                            to="/"
-                        >
-                            Logout
-                        </Link>
-                    </li>
-                </ul>
+                {TokenService.hasAuthToken()
+                    ? this.renderLoggedIn()
+                    : this.renderLoggedOut()}
             </nav>
         );
     }
