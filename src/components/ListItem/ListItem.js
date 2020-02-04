@@ -10,14 +10,15 @@ const ifList = (item, link) => (
 )
 
 function ListItem(props) {
-    const {item, link, onPatch, onDelete} = props;
+    const {item, link, isOpen, onPatch, onDelete} = props;
     const content = ifList(item, link);
 
     return (
         <li className="named-list-item">
             {content}
             <FormItem 
-                item={item} 
+                item={item}
+                isOpen={isOpen}
                 onPatch={onPatch} 
                 onDelete={onDelete} 
             />

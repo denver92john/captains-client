@@ -1,20 +1,33 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import Modal from 'react-modal';
 import ListApiService from '../../services/ListApiService';
 import ListContext from '../../contexts/ListContext';
 import {Section} from '../../components/Utils/Utils';
 import List from '../../components/List/List';
 
+Modal.setAppElement("#root");
+
 class ListsPage extends Component {
-    /*constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = {
-            lists: [],
-            error: null
-        }
-    }*/
+            showModal: false,
+            patchListId: null
+        };
+        this.handleOpenModal = this.handleOpenModal.bind(this);
+        this.handleCloseModal = this.handleCloseModal.bind(this);
+    }
 
     static contextType = ListContext;
+
+    handleOpenModal() {
+        this.setState({showModal: true})
+    }
+
+    handleCloseModal() {
+        this.setState({showModal: false})
+    }
 
     componentDidMount() {
         this.context.clearError();
@@ -45,12 +58,31 @@ class ListsPage extends Component {
             .catch(this.context.setError)
     }
 
-    handlePatchList = (list, ev) => {
+    handlePrePatch = (list, ev) => {
         ev.preventDefault();
         console.log(`handlePatchList ran for list.id: ${list.id}`);
         this.context.clearError();
+        this.setState({patchListId: list.id});
+        this.handleOpenModal();
+    }
 
-        //ListApiService.patchList()
+    handlePatchList = ev => {
+        ev.preventDefault();
+        console.log(this.state.patchListId);
+        const {list_name} = ev.target;
+        const {patchListId} = this.state;
+        const patchedList = {
+            list_name: list_name.value
+        }
+
+        ListApiService.patchList(patchedList, patchListId)
+            .then(() => {
+                this.context.patchList(patchedList.list_name, patchListId)
+                list_name.value = ''
+            })
+            .catch(this.context.setError)
+
+        this.handleCloseModal();
     }
 
     handleDeleteList = (list, ev) => {
@@ -79,10 +111,29 @@ class ListsPage extends Component {
                     <List 
                         user_id={this.props.user_id} 
                         items={this.context.lists}
+                        isOpen={this.handleOpenModal}
                         onPost={this.handlePostList}
-                        onPatch={this.handlePatchList}
+                        onPatch={this.handlePrePatch}
                         onDelete={this.handleDeleteList}
                     />
+                    <Modal
+                        isOpen={this.state.showModal}
+                        contentLabel="Update it"
+                    >
+                        <form onSubmit={this.handlePatchList}>
+                            <input 
+                                type="text"
+                                name="list_name"
+                                required
+                            />
+                            <button
+                                type="submit"
+                            >
+                                Update
+                            </button>
+                        </form>
+                    </Modal>
+
                 </Section>
                 <Section>
                     <div className="wrapper">

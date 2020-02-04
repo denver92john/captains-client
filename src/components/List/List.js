@@ -4,7 +4,7 @@ import ListItem from '../ListItem/ListItem';
 import './List.css';
 
 function List(props) {
-    const {items, onPost, onPatch, onDelete} = props;
+    const {items, onPost, isOpen, onPatch, onDelete} = props;
     return (
         <div className="wrapper list-component">
             <FormList onPost={onPost} />
@@ -14,6 +14,7 @@ function List(props) {
                         key={item.id}
                         item={item}
                         link={`/list/${item.id}/list-items`}
+                        isOpen={isOpen}
                         onPatch={onPatch}
                         onDelete={onDelete}
                     />

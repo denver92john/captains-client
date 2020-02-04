@@ -35,7 +35,15 @@ export class ListProvider extends Component {
         }))
     }
 
-    patchList = list => {}
+    patchList = (listName, listId) => {
+        const {lists} = this.state;
+        let listIndex = lists.findIndex(obj => obj.id === listId);
+        let listsCopy = JSON.parse(JSON.stringify(lists));
+        listsCopy[listIndex].list_name = listName
+        this.setState({
+            lists: listsCopy
+        })
+    }
 
     deleteList = listId => {
         const lists = this.state.lists.filter(ls => ls.id !== listId);
