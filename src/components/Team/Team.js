@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+//import {Link} from 'react-router-dom';
 import {Input, Button} from '../Utils/Utils';
 import './Team.css';
 
@@ -89,13 +90,18 @@ class Team extends Component {
     renderTeamList() {
         const {teams} = this.state;
         return (
-            <ul className="named-list">
-                {teams.map((team, index) =>
-                    <li key={index} className="named-list-item">
-                        <p>Team {index + 1}: {team.toString()}</p>
-                    </li>
-                )}
-            </ul>
+            <>
+                {/*(teams.length === 0)
+                    ? <p>Add some players to this list before you create any teams.</p>
+                    : null*/}
+                <ul className="named-list">
+                    {teams.map((team, index) =>
+                        <li key={index} className="named-list-item">
+                            <p>Team {index + 1}: {team.toString()}</p>
+                        </li>
+                    )}
+                </ul>
+            </>
         );
     }
 

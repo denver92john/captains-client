@@ -38,6 +38,10 @@ class LandingPage extends Component {
                         <header className="section-header">
                             <h2>User Demo Account</h2>
                         </header>
+                        <div className="section-div">
+                            <p>Username: JDenver</p>
+                            <p>Password: JDenver1!</p>
+                        </div>
                     </div>
                 </Section>
             </div>

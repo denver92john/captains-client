@@ -8,6 +8,9 @@ function List(props) {
     return (
         <div className="wrapper list-component">
             <FormList onPost={onPost} />
+            {(items.length === 0)
+                ? <p>You haven't added anything yet.</p>
+                : null}
             <ul className="named-list">
                 {items.map(item =>
                     <ListItem 

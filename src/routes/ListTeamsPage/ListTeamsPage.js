@@ -35,7 +35,7 @@ class ListTeamsPage extends Component {
                 </Section>
                 <Section>
                     <div className="wrapper">
-                        <p>If no lists are appearing, then create one at the <Link to="/lists">Lists Page</Link>.</p>
+                        <p>To create more lists, go to the <Link to="/lists">Lists Page</Link>.</p>
                     </div>
                 </Section>
             </div>
