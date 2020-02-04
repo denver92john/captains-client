@@ -49,7 +49,15 @@ export class ItemProvider extends Component {
     }
 
     //JSON.parse(JSON.stringify(array))
-    patchItem = item => {}
+    patchItem = (itemName, itemId) => {
+        const {items} = this.state;
+        let itemIndex = items.findIndex(obj => obj.id === itemId);
+        let itemsCopy = JSON.parse(JSON.stringify(items));
+        itemsCopy[itemIndex].item_name = itemName
+        this.setState({
+            items: itemsCopy
+        })
+    }
 
     deleteItem = itemId => {
         const items = this.state.items.filter(itm => itm.id !== itemId);

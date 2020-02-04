@@ -109,9 +109,7 @@ class ListsPage extends Component {
                 </Section>
                 <Section>
                     <List 
-                        user_id={this.props.user_id} 
                         items={this.context.lists}
-                        isOpen={this.handleOpenModal}
                         onPost={this.handlePostList}
                         onPatch={this.handlePrePatch}
                         onDelete={this.handleDeleteList}
@@ -131,9 +129,14 @@ class ListsPage extends Component {
                             >
                                 Update
                             </button>
+                            <button
+                                type="button"
+                                onClick={this.handleCloseModal}
+                            >
+                                Cancel
+                            </button>
                         </form>
                     </Modal>
-
                 </Section>
                 <Section>
                     <div className="wrapper">

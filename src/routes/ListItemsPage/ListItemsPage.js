@@ -1,16 +1,37 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import Modal from 'react-modal';
 import ListApiService from '../../services/ListApiService';
 import ItemApiService from '../../services/ItemApiService';
 import ItemContext from '../../contexts/ItemContext';
 import {Section} from '../../components/Utils/Utils';
 import List from '../../components/List/List';
 
+Modal.setAppElement("#root");
+
 class ListItemsPage extends Component {
+    constructor() {
+        super();
+        this.state = {
+            showModal: false,
+            patchItemId: null
+        }
+        this.handleOpenModal = this.handleOpenModal.bind(this);
+        this.handleCloseModal = this.handleCloseModal.bind(this);
+    }
+
     static contextType = ItemContext;
 
     static defaultProps = {
         match: {params: {}}
+    }
+
+    handleOpenModal() {
+        this.setState({showModal: true})
+    }
+
+    handleCloseModal() {
+        this.setState({showModal: false})
     }
 
     componentDidMount() {
@@ -49,12 +70,30 @@ class ListItemsPage extends Component {
             .catch(this.context.setError)
     }
 
-    handlePatchItem = (item, ev) => {
+    handlePrePatch = (item, ev) => {
         ev.preventDefault();
-        console.log(`handlePatchItem ran for: ${item.id}`);
-        this.context.clearError();
+        console.log(`handlePrePatch ran for: ${item.id}`);
+        this.setState({patchItemId: item.id})
+        this.handleOpenModal();
+    }
 
-        //ItemApiService.patchItem()
+    handlePatchItem = ev => {
+        ev.preventDefault();
+        this.context.clearError();
+        const {item_name} = ev.target;
+        const {patchItemId} = this.state;
+        const patchedItem = {
+            item_name: item_name.value
+        }
+
+        ItemApiService.patchItem(patchedItem, patchItemId)
+            .then(() => {
+                this.context.patchItem(patchedItem.item_name, patchItemId)
+                item_name.value = ''
+            })
+            .catch(this.context.setError)
+
+        this.handleCloseModal();
     }
 
     handleDeleteItem = (item, ev) => {
@@ -70,7 +109,6 @@ class ListItemsPage extends Component {
     }
 
     render() {
-        //const {list, items} = this.state;
         const {list, items} = this.context;
         return (
             <div>
@@ -85,9 +123,31 @@ class ListItemsPage extends Component {
                     <List 
                         items={items}
                         onPost={this.handlePostItem}
-                        onPatch={this.handlePatchItem}
+                        onPatch={this.handlePrePatch}
                         onDelete={this.handleDeleteItem}
                     />
+                    <Modal
+                        isOpen={this.state.showModal}
+                    >
+                        <form onSubmit={this.handlePatchItem}>
+                            <input
+                                type="text"
+                                name="item_name"
+                                required
+                            />
+                            <button
+                                type="submit"
+                            >
+                                Update
+                            </button>
+                            <button
+                                type="button"
+                                onClick={this.handleCloseModal}
+                            >
+                                Cancel
+                            </button>
+                        </form>
+                    </Modal>
                 </Section>
                 <Section>
                     <div className="wrapper">
