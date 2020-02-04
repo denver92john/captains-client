@@ -1,5 +1,5 @@
 import React from 'react';
-import icon from '../../img/wireframe-box.jpg';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import '../List/List.css';
 
 function FormItem(props) {
@@ -10,13 +10,13 @@ function FormItem(props) {
                 type="button"
                 onClick={ev => onPatch(item, ev)}
             >
-                <img src={icon} alt="edit button" className="list-item-button" />
+                <FontAwesomeIcon icon="edit" />
             </button>
             <button
                 type="button"
                 onClick={ev => onDelete(item, ev)}
             >
-                <img src={icon} alt="delete button" className="list-item-button"/>
+                <FontAwesomeIcon icon="trash-alt" />
             </button>
         </div>
     );

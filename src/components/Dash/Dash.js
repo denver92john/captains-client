@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import icon from '../../img/wireframe-box.jpg';
 import './Dash.css';
 
@@ -9,13 +10,13 @@ class Dash extends Component {
             <div className="wrapper dash">
                 <div className="dash-icon">
                     <Link to="/lists">
-                        <img src={icon} alt="List's icon" className="dash-icon-img" />
+                        <FontAwesomeIcon icon="list" />
                     </Link>
                     <h2 className="dash-icon-text">Lists</h2>
                 </div>
                 <div className="dash-icon">
                     <Link to="/teams">
-                        <img src={icon} alt="Team's icon" className="dash-icon-img" />
+                        <FontAwesomeIcon icon="user-friends" />
                     </Link>
                     <h2 className="dash-icon-text">Teams</h2>
                 </div>
