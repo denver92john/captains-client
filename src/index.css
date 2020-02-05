@@ -1,5 +1,31 @@
-* {
+:root {
+  /* font sizing still needs work */
+  --basis: 1em;
+  --stepUp4: calc(var(--stepUp3) * 1.143);
+  --stepUp3: calc(var(--stepUp2) * 1.167);
+  --stepUp2: calc(var(--stepUp1) * 1.2);
+  --stepUp1: calc(var(--basis) * 1.25);
+  --stepDown1: calc(var(--basis) * 0.875);
+  --stepDown2: calc(var(--stepDown1) * 0.857);
+  --stepDown3: calc(var(--stepDown2) * 0.833);
+  --stepDown4: calc(var(--stepDown3) * 0.8);
+
+  --color1: #E31837;
+  --color2: #FFB81C;
+  --color3: #FFFFFF;
+  --color4: #D3D3D3;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
+}
+
+* {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
   margin: 0;
   padding: 0;
 }
@@ -10,9 +36,15 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: var(--basis);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }

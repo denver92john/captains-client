@@ -9,13 +9,13 @@ class Dash extends Component {
             <div className="wrapper dash">
                 <div className="dash-icon">
                     <Link to="/lists">
-                        <FontAwesomeIcon icon="list" />
+                        <FontAwesomeIcon icon="list" className="fa-dash-icon" />
                     </Link>
                     <h2 className="dash-icon-text">Lists</h2>
                 </div>
                 <div className="dash-icon">
                     <Link to="/teams">
-                        <FontAwesomeIcon icon="user-friends" />
+                        <FontAwesomeIcon icon="user-friends" className="fa-dash-icon" />
                     </Link>
                     <h2 className="dash-icon-text">Teams</h2>
                 </div>

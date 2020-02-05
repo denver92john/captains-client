@@ -13,8 +13,9 @@
     flex-basis: 50%;
 }
 
-.dash-icon-img {
-    width: 50px;
+.fa-dash-icon {
+    font-size: 30px;
+    margin: 10px;
 }
 
 .dash-icon-text {
