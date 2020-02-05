@@ -1,8 +1,11 @@
-.button {}
+.input,
+.button {
+    font-size: var(--basis);
+}
 
-.input {}
-
-.form {}
+.form {
+    padding: 10px;
+}
 
 .section {
     min-height: 300px;
@@ -20,4 +23,6 @@
 
 .required {}
 
-.label {}
+.label {
+    display: block;
+}

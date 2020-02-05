@@ -1,6 +1,7 @@
 import React from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {Input, Button} from '../Utils/Utils';
+import './FormList.css';
 
 function FormList(props) {
     return (
@@ -14,7 +15,7 @@ function FormList(props) {
                 type="submit"
                 className="button-submit"
             >
-                <FontAwesomeIcon icon="plus" />
+                <FontAwesomeIcon icon="plus" className="fa-formlist-icon" />
             </Button>
         </form>
     );
