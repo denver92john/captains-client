@@ -39,7 +39,11 @@ class SignupPage extends Component {
     }
 
     render() {
-        //const {error} = this.state;
+        const {error} = this.state;
+        let errMessage;
+        if(error) {
+            errMessage = error.message
+        }
         return (
             <div>
                 <Section className="hero">
@@ -49,7 +53,7 @@ class SignupPage extends Component {
                 </Section>
                 <Section>
                     <div className="wrapper">
-                        <FormAuth onSubmit={this.handleSubmit}>
+                        <FormAuth onSubmit={this.handleSubmit} err={errMessage}>
                             <div className="form-section">
                                 <Label htmlFor="re_password-input"><Required/>Re-enter Password:</Label>
                                 <Input 

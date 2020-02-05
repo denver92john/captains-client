@@ -22,6 +22,7 @@ class LoginPage extends Component {
 
     handleSubmit = ev => {
         ev.preventDefault()
+        this.setState({error: null})
         const {username, password} = ev.target;
         const loggedUser = {
             username: username.value,
@@ -39,6 +40,11 @@ class LoginPage extends Component {
     }
 
     render() {
+        const {error} = this.state;
+        let errMessage;
+        if(error) {
+            errMessage = error.message
+        }
         return (
             <div>
                 <Section className="hero">
@@ -48,7 +54,7 @@ class LoginPage extends Component {
                 </Section>
                 <Section>
                     <div className="wrapper">
-                        <FormAuth onSubmit={this.handleSubmit} />
+                        <FormAuth onSubmit={this.handleSubmit} err={errMessage} />
                     </div>
                 </Section>
             </div>

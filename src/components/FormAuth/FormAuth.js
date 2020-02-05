@@ -26,6 +26,10 @@ function FormAuth(props) {
 
             {props.children}
 
+            <div role="alert">
+                {props.err && <p>{props.err}</p>}
+            </div>
+
             <div className="form-buttons">
                 <Button
                     type="submit"
