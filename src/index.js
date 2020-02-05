@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {BrowserRouter} from 'react-router-dom';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {fab} from '@fortawesome/free-brands-svg-icons';
-import {faTrashAlt, faPlus, faEdit, faList, faUserFriends} from '@fortawesome/free-solid-svg-icons';
+import {faTrashAlt, faPlus, faEdit, faList, faUserFriends, faArrowCircleLeft} from '@fortawesome/free-solid-svg-icons';
 import {ListProvider} from './contexts/ListContext';
 import {ItemProvider} from './contexts/ItemContext';
 import './index.css';
@@ -15,7 +15,8 @@ library.add(
     faPlus,
     faEdit,
     faList,
-    faUserFriends
+    faUserFriends,
+    faArrowCircleLeft
 )
 
 ReactDOM.render(

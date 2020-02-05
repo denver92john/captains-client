@@ -51,9 +51,7 @@ class Team extends Component {
     // do i need to use shouldComponentUpdate()??
     componentDidUpdate(oldProps) {
         if(oldProps.items !== this.props.items) {
-            //console.log('yes they diff')
             const listNames = createNamesArray(this.props.items)
-            //console.log(listNames)
             this.setState({names: listNames})
         }
     }

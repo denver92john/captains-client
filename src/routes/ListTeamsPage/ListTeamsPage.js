@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import ListApiService from '../../services/ListApiService';
 import ListContext from '../../contexts/ListContext';
 import {Section} from '../../components/Utils/Utils';
+import BackButton from '../../components/BackButton/BackButton';
 import ListTeams from '../../components/ListTeams/ListTeams';
 
 class ListTeamsPage extends Component {
@@ -31,6 +32,7 @@ class ListTeamsPage extends Component {
                     </header>
                 </Section>
                 <Section>
+                    <BackButton pathTo="/dashboard" />
                     <ListTeams items={this.context.lists} />
                 </Section>
                 <Section>

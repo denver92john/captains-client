@@ -5,6 +5,7 @@ import ListApiService from '../../services/ListApiService';
 import ItemApiService from '../../services/ItemApiService';
 import ItemContext from '../../contexts/ItemContext';
 import {Section} from '../../components/Utils/Utils';
+import BackButton from '../../components/BackButton/BackButton';
 import List from '../../components/List/List';
 
 Modal.setAppElement("#root");
@@ -54,7 +55,6 @@ class ListItemsPage extends Component {
 
     handlePostItem = ev => {
         ev.preventDefault();
-        console.log(`handlePostItem ran`);
         this.context.clearError();
         const {item_name} = ev.target;
         const newItem = {
@@ -72,7 +72,6 @@ class ListItemsPage extends Component {
 
     handlePrePatch = (item, ev) => {
         ev.preventDefault();
-        console.log(`handlePrePatch ran for: ${item.id}`);
         this.setState({patchItemId: item.id})
         this.handleOpenModal();
     }
@@ -98,7 +97,6 @@ class ListItemsPage extends Component {
 
     handleDeleteItem = (item, ev) => {
         ev.preventDefault();
-        console.log(`handleDeleteItem ran for: ${item.id}`);
         this.context.clearError();
 
         ItemApiService.deleteItem(item.id)
@@ -120,6 +118,7 @@ class ListItemsPage extends Component {
                     </header>
                 </Section>
                 <Section>
+                    <BackButton pathTo="/lists" />
                     <List 
                         items={items}
                         onPost={this.handlePostItem}

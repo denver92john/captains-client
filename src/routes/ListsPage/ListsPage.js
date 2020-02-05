@@ -4,6 +4,7 @@ import Modal from 'react-modal';
 import ListApiService from '../../services/ListApiService';
 import ListContext from '../../contexts/ListContext';
 import {Section} from '../../components/Utils/Utils';
+import BackButton from '../../components/BackButton/BackButton';
 import List from '../../components/List/List';
 
 Modal.setAppElement("#root");
@@ -60,7 +61,6 @@ class ListsPage extends Component {
 
     handlePrePatch = (list, ev) => {
         ev.preventDefault();
-        console.log(`handlePatchList ran for list.id: ${list.id}`);
         this.context.clearError();
         this.setState({patchListId: list.id});
         this.handleOpenModal();
@@ -68,7 +68,6 @@ class ListsPage extends Component {
 
     handlePatchList = ev => {
         ev.preventDefault();
-        console.log(this.state.patchListId);
         const {list_name} = ev.target;
         const {patchListId} = this.state;
         const patchedList = {
@@ -87,7 +86,6 @@ class ListsPage extends Component {
 
     handleDeleteList = (list, ev) => {
         ev.preventDefault();
-        console.log(`handleDeleteList ran for list.id: ${list.id}`)
         this.context.clearError();
 
         ListApiService.deleteList(list.id)
@@ -108,6 +106,7 @@ class ListsPage extends Component {
                     </header>
                 </Section>
                 <Section>
+                    <BackButton pathTo="/dashboard" />
                     <List 
                         items={this.context.lists}
                         onPost={this.handlePostList}

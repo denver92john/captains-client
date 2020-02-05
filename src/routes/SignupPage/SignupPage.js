@@ -26,7 +26,6 @@ class SignupPage extends Component {
             password: password.value,
             re_password: re_password.value
         }
-        //console.log(newUser);
         AuthApiService.postUser(newUser)
             .then(() => {
                 username.value = ''

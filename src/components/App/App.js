@@ -17,10 +17,6 @@ import './App.css';
 class App extends Component {
   state = {
     user: null
-    /*user: {
-      id: 1,
-      username: "JDenver"
-    }*/
   }
 
   handleSetUser = user => {
@@ -44,17 +40,6 @@ class App extends Component {
               path={'/'}
               component={LandingPage}
             />
-            {/*
-            <Route 
-              path={'/login'}
-              render={routeProps => (
-                <LoginPage 
-                  setUser={this.handleSetUser}
-                  {...routeProps}
-                />
-              )}
-            />
-            */}
             <PublicOnlyRoute
               path={'/login'}
               component={LoginPage}
@@ -64,57 +49,20 @@ class App extends Component {
               path={'/signup'}
               component={SignupPage}
             />
-            {/*
-            <Route 
-              path={'/dashboard'}
-              render={routeProps => (
-                <DashboardPage 
-                  user={this.state.user}
-                  {...routeProps}
-                />
-              )}
-            />
-            */}
             <PrivateRoute
               path={'/dashboard'}
               component={DashboardPage}
               user={this.state.user}
             />
-
-
-            {/*
-            <Route 
-              path={'/list/:list_id/list-items'}
-              render={routeProps => (
-                <ListItemsPage 
-                  {...routeProps}
-                />
-              )}
-            />
-            */}
             {/* --- PrivateRoute wasn't passing along the :/list_id param unless {...props} is under the Route  --- */}
             <PrivateRoute
               path={'/list/:list_id/list-items'}
               component={ListItemsPage}
             />
-
-
-            {/*
-            <Route 
-              path={'/lists'}
-              render={routeProps => (
-                <ListsPage 
-                  {...routeProps}
-                />
-              )}
-            />
-            */}
             <PrivateRoute
               path={'/lists'}
               component={ListsPage}
             />
-
-
             <PrivateRoute 
               path={'/teams'}
               component={ListTeamsPage}

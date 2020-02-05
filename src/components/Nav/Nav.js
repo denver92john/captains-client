@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import TokenService from '../../services/TokenService';
-import logo from '../../img/wireframe-box.jpg';
+import logo from '../../img/captains-30px30px.png';
 import './Nav.css';
 
 class Nav extends Component {
