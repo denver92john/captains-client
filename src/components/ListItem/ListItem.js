@@ -1,12 +1,12 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import FormItem from '../FormItem/FormItem';
-import '../List/List.css';
+import './ListItem.css';
 
 const ifList = (item, link) => (
     (item.list_name)
-        ? <Link to={link}>{item.list_name}</Link>
-        : <p>{item.item_name}</p>
+        ? <Link to={link} className="list-item-link">{item.list_name}</Link>
+        : <p className="list-item-p">{item.item_name}</p>
 )
 
 function ListItem(props) {
@@ -14,7 +14,7 @@ function ListItem(props) {
     const content = ifList(item, link);
 
     return (
-        <li className="named-list-item">
+        <li className="list-item">
             {content}
             <FormItem 
                 item={item}

@@ -1,0 +1,20 @@
+.list-item {
+    border-bottom: 1px solid black;
+	padding: 7px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.list-item:last-of-type {
+    border-bottom: none;
+}
+
+.list-item-link {
+    color: var(--color1);
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.list-item-p {
+    font-size: 20px;
+}

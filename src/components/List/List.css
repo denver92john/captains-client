@@ -9,18 +9,3 @@
     list-style-type: none;
     text-align: left;
 }
-
-.named-list-item {
-    border-bottom: 1px solid black;
-	padding: 5px;
-	display: flex;
-	justify-content: space-between;
-}
-
-.named-list-item:last-of-type {
-    border-bottom: none;
-}
-
-.list-item-button {
-    width: 20px;
-}
