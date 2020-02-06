@@ -4,7 +4,7 @@ import Modal from 'react-modal';
 import ListApiService from '../../services/ListApiService';
 import ListContext from '../../contexts/ListContext';
 import {Section} from '../../components/Utils/Utils';
-import BackButton from '../../components/BackButton/BackButton';
+import BackAndAlt from '../../components/BackAndAlt/BackAndAlt';
 import List from '../../components/List/List';
 
 Modal.setAppElement("#root");
@@ -106,7 +106,14 @@ class ListsPage extends Component {
                     </header>
                 </Section>
                 <Section>
-                    <BackButton pathTo="/dashboard" />
+
+                    <BackAndAlt 
+                        backTo="/dashboard"
+                        backWhat="Dashboard"
+                        altTo="/teams"
+                        altWhat="Teams"
+                    />
+                    
                     <List 
                         items={this.context.lists}
                         onPost={this.handlePostList}

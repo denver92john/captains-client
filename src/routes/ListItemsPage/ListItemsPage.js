@@ -5,7 +5,7 @@ import ListApiService from '../../services/ListApiService';
 import ItemApiService from '../../services/ItemApiService';
 import ItemContext from '../../contexts/ItemContext';
 import {Section} from '../../components/Utils/Utils';
-import BackButton from '../../components/BackButton/BackButton';
+import BackAndAlt from '../../components/BackAndAlt/BackAndAlt';
 import List from '../../components/List/List';
 
 Modal.setAppElement("#root");
@@ -118,7 +118,12 @@ class ListItemsPage extends Component {
                     </header>
                 </Section>
                 <Section>
-                    <BackButton pathTo="/lists" />
+                    <BackAndAlt 
+                        backTo="/lists"
+                        backWhat="Lists"
+                        altTo={`/team/list/${list.id}`}
+                        altWhat="Create Teams"
+                    />
                     <List 
                         items={items}
                         onPost={this.handlePostItem}

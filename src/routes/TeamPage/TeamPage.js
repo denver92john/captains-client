@@ -3,7 +3,8 @@ import ListApiService from '../../services/ListApiService';
 import ItemApiService from '../../services/ItemApiService';
 import ItemContext from '../../contexts/ItemContext';
 import {Section} from '../../components/Utils/Utils';
-import BackButton from '../../components/BackButton/BackButton';
+//import BackButton from '../../components/BackButton/BackButton';
+import BackAndAlt from '../../components/BackAndAlt/BackAndAlt';
 import Team from '../../components/Team/Team';
 
 class TeamPage extends Component {
@@ -44,7 +45,13 @@ class TeamPage extends Component {
                     </header>
                 </Section>
                 <Section>
-                    <BackButton pathTo="/teams" />
+                    {/*<BackButton pathTo="/teams" />*/}
+                    <BackAndAlt 
+                        backTo="/teams"
+                        backWhat="Pick List"
+                        altTo={`/list/${list.id}/list-items`}
+                        altWhat="Edit Items"
+                    />
                     <Team items={items} error={error} />
                 </Section>
             </div>

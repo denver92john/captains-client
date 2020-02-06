@@ -1,0 +1,25 @@
+.back-and-alt {
+    max-width: 400px;
+    margin: auto;
+    padding: 5px 10px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.fa-backbutton-icon,
+.fa-altbutton-icon {
+    font-size: 25px;
+}
+
+.backbutton-text,
+.altbutton-text {
+    display: inline-block;
+}
+
+.backbutton-text {
+    padding-left: 10px;
+}
+
+.altbutton-text {
+    padding-right: 10px;
+}

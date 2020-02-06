@@ -4,5 +4,8 @@
 
 .fa-backbutton-icon {
     font-size: 25px;
-    margin: 10px;
+}
+
+.backbutton-text {
+    display: inline-block;
 }
