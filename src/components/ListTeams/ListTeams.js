@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import './ListTeams.css';
 
 class ListTeams extends Component {
     render() {
@@ -7,15 +8,15 @@ class ListTeams extends Component {
         return (
             <div className="wrapper list-component">
                 {(items.length === 0)
-                    ? <p>You haven't created any lists yet. Go to the <Link to={`/lists`}>Lists Page</Link> to create a new list.</p>
+                    ? <p>You haven't created any lists yet. Go to the <Link to={`/lists`} className="no-lists-link">Lists Page</Link> to create a new list.</p>
                     : null}
                 <ul className="named-list">
                     {items.map(item =>
-                        <Link to={`/team/list/${item.id}`} key={item.id} className="named-list-item">
-                            <li>
+                        <li key={item.id} className="list-team-item">
+                            <Link to={`/team/list/${item.id}`} className="list-team-item-link">
                                 {item.list_name}
-                            </li>
-                        </Link>
+                            </Link>
+                        </li>
                     )}
                 </ul>
             </div>

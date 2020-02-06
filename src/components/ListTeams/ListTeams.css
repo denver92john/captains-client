@@ -1,0 +1,18 @@
+.no-lists-link {
+    color: var(--color1);
+}
+
+.list-team-item {
+    border-bottom: 1px solid black;
+    padding: 7px;
+}
+
+.list-team-item:last-of-type {
+    border-bottom: none;
+}
+
+.list-team-item-link {
+    color: var(--color1);
+    font-weight: 500;
+    font-size: 20px;
+}

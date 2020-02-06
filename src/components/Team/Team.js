@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 //import {Link} from 'react-router-dom';
-import {Input, Button} from '../Utils/Utils';
 import './Team.css';
 
 function createNamesArray(array) {
@@ -66,22 +65,21 @@ class Team extends Component {
 
     renderForm() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                    <div className="form-section">
-                        <label htmlFor="number-teams-input">Number of teams (2-10): </label>
-                        <Input 
-                            type="number"
-                            id="number-teams-input"
-                            name="number_teams"
-                            min="2"
-                            max="10"
-                        />
-                    </div>
+            <form onSubmit={this.handleSubmit} className="team-form">
+                <div className="team-form-section">
+                    <label htmlFor="number-teams-input" className="team-form-label">Number of teams (2-10): </label>
+                    <input 
+                        type="number"
+                        id="number-teams-input"
+                        name="number_teams"
+                        className="team-form-input"
+                        min="2"
+                        max="10"
+                    />
+                </div>
 
-                    <div className="form-buttons">
-                        <Button type="submit">Create Teams</Button>
-                    </div>
-                </form>
+                <button type="submit" className="team-form-button">Create Teams</button>
+            </form>
         );
     }
 
@@ -92,10 +90,10 @@ class Team extends Component {
                 {/*(teams.length === 0)
                     ? <p>Add some players to this list before you create any teams.</p>
                     : null*/}
-                <ul className="named-list">
+                <ul className="team-list">
                     {teams.map((team, index) =>
-                        <li key={index} className="named-list-item">
-                            <p>Team {index + 1}: {team.toString()}</p>
+                        <li key={index} className="team-item">
+                            <p className="team-p"><span className="team-number">Team {index + 1}: </span>{team.toString()}</p>
                         </li>
                     )}
                 </ul>
@@ -110,7 +108,7 @@ class Team extends Component {
             content = <p>There wasn an error</p>
         } else {
             content = 
-                <div className="wrapper teams-component">
+                <div className="wrapper team">
                     {this.renderForm()}
                     {this.renderTeamList()}
                 </div>

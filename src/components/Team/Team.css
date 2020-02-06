@@ -1,6 +1,56 @@
-.teams-component {
+.team {
     padding: 20px;
     background-color: ghostwhite;
     min-width: 200px;
     min-height: 200px;
+}
+
+.team-list {
+    list-style-type: none;
+    text-align: left;
+}
+
+.team-item {
+    border-bottom: 1px solid black;
+	padding: 7px;
+}
+
+.team-item:last-of-type {
+    border-bottom: none;
+}
+
+.team-p {
+    font-size: 18px;
+}
+
+.team-number {
+    color: var(--color1);
+    font-weight: 500;
+}
+
+/* TEAM FORM */
+
+.team-form {
+    padding-bottom: 20px;
+}
+
+.team-form-section {
+    padding: 10px;
+}
+
+.team-form-label {
+    color: var(--color1);
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.team-form-input {
+    font-size: 18px;
+    width: 50px;
+    padding: 2px 4px;
+}
+
+.team-form-button {
+    font-size: 18px;
+    padding: 2px 5px;
 }
