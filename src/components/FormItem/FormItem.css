@@ -1,3 +1,8 @@
+.formitem-button {
+    padding: 2px;
+    min-width: 32px;
+}
+
 .formitem-button:last-of-type {
     margin-left: 10px;
 }

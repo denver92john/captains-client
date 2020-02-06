@@ -1,22 +1,22 @@
 import React from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {Input, Button} from '../Utils/Utils';
 import './FormList.css';
 
 function FormList(props) {
     return (
-        <form onSubmit={props.onPost}>
-            <Input 
+        <form onSubmit={props.onPost} className="form-list">
+            <input 
                 type="text"
                 name="item_name"
+                className="form-list-input"
                 required
             />
-            <Button
+            <button
                 type="submit"
-                className="button-submit"
+                className="form-list-button"
             >
                 <FontAwesomeIcon icon="plus" className="fa-formlist-icon" />
-            </Button>
+            </button>
         </form>
     );
 }

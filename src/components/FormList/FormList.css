@@ -1,3 +1,19 @@
+.form-list {
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+
+}
+
+.form-list-input {
+    min-width: 225px;
+    flex-grow: 1;
+}
+
+.form-list-button {
+    min-width: 35px;
+}
+
 .fa-formlist-icon {
     font-size: 25px;
 }
