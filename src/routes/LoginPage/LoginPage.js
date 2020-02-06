@@ -53,9 +53,7 @@ class LoginPage extends Component {
                     </header>
                 </Section>
                 <Section>
-                    <div className="wrapper">
-                        <FormAuth onSubmit={this.handleSubmit} err={errMessage} />
-                    </div>
+                    <FormAuth onSubmit={this.handleSubmit} err={errMessage} />
                 </Section>
             </div>
         );

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import AuthApiService from '../../services/AuthApiService';
-import {Input, Label, Required, Section} from '../../components/Utils/Utils';
+import {Input, Label, Section} from '../../components/Utils/Utils';
 import FormAuth from '../../components/FormAuth/FormAuth';
 
 class SignupPage extends Component {
@@ -55,7 +55,7 @@ class SignupPage extends Component {
                     <div className="wrapper">
                         <FormAuth onSubmit={this.handleSubmit} err={errMessage}>
                             <div className="form-section">
-                                <Label htmlFor="re_password-input"><Required/>Re-enter Password:</Label>
+                                <Label htmlFor="re_password-input">Re-enter Password:</Label>
                                 <Input 
                                     type="password"
                                     id="re_password-input"

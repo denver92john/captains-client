@@ -17,14 +17,6 @@ export function Section({className, ...props}) {
     return <section className={['section', className].join(' ')} {...props} />
 }
 
-export function Required({className, ...props}) {
-    return (
-        <span className={['required', className].join(' ')} {...props}>
-            &#42;
-        </span>
-    );
-}
-
 export function Label({className, ...props}) {
     return <label className={['label', className].join(' ')} {...props} />
 }
