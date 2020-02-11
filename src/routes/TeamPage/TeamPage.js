@@ -37,12 +37,18 @@ class TeamPage extends Component {
         return (
             <div>
                 <Section className="hero">
-                    <header className="section-header">
-                        <h1>Create Team Page</h1>
-                        <h2>{list.list_name}</h2>
-                        <p>Select a number of teams to create and the names in your list will be randomly assigned to the specified number of teams.</p>
-                    </header>
+                    <div className="wrapper">
+                        <header className="section-header">
+                            <h1>Create Teams Page</h1>
+                            <h2>{list.list_name}</h2>
+                        </header>
+                        <div>
+                            <p className="section-p">Select the desired number of teams and your list will be randomly and evenly divided.</p>
+                        </div>
+                    </div>
+                    
                 </Section>
+
                 <Section>
                     <BackAndAlt 
                         backTo="/teams"
@@ -53,6 +59,8 @@ class TeamPage extends Component {
                     />
                     <Team items={items} error={error} />
                 </Section>
+
+                <Section />
             </div>
         );
     }

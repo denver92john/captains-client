@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
 import Modal from 'react-modal';
 import ListApiService from '../../services/ListApiService';
 import ListContext from '../../contexts/ListContext';
@@ -100,14 +99,19 @@ class ListsPage extends Component {
         return (
             <div>
                 <Section className="hero">
-                    <header className="section-header">
-                        <h1>List's Page</h1>
-                        <p>Create a list by typing a name and then clicking 'Create'. To edit the names in the list click on the list name.</p>
-                        <p>To edit the list name, click the edit icon. And to delete the list entirely, click the delete icon.</p>
-                    </header>
+                    <div className="wrapper">
+                        <header className="section-header">
+                            <h1>List's Page</h1>
+                        </header>
+                        <div>
+                            <p className="section-p">To create list, select input box and give your list a name, then click the create button.</p>
+                            <p className="section-p">Your newly created list will be added below.</p>
+                            <p className="section-p">To modify the names in your list, click the list name.</p>
+                        </div>
+                    </div>
                 </Section>
-                <Section>
 
+                <Section>
                     <BackAndAlt 
                         backTo="/dashboard"
                         backWhat="Dashboard"
@@ -115,7 +119,6 @@ class ListsPage extends Component {
                         altWhat="Pick List"
                         isList={true}
                     />
-                    
                     <List 
                         items={this.context.lists}
                         onPost={this.handlePostList}
@@ -131,31 +134,10 @@ class ListsPage extends Component {
                             onModal={this.handlePatchList} 
                             onCloseModal={this.handleCloseModal} 
                         />
-                        {/*<form onSubmit={this.handlePatchList}>
-                            <input 
-                                type="text"
-                                name="list_name"
-                                required
-                            />
-                            <button
-                                type="submit"
-                            >
-                                Update
-                            </button>
-                            <button
-                                type="button"
-                                onClick={this.handleCloseModal}
-                            >
-                                Cancel
-                            </button>
-                        </form>*/}
                     </Modal>
                 </Section>
-                <Section>
-                    <div className="wrapper">
-                        <p>Have a list you want to create a set of teams with? Click <Link to="/teams">here</Link> to go to the Teams Page</p>
-                    </div>
-                </Section>
+                
+                <Section />
             </div>
         );
     }

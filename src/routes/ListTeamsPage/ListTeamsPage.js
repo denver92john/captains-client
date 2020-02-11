@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
 import ListApiService from '../../services/ListApiService';
 import ListContext from '../../contexts/ListContext';
 import {Section} from '../../components/Utils/Utils';
@@ -26,10 +25,15 @@ class ListTeamsPage extends Component {
         return (
             <div>
                 <Section className="hero">
-                    <header className="section-header">
-                        <h1>Team's Page</h1>
-                        <p>Select a list to create some teams.</p>
-                    </header>
+                    <div className="wrapper">
+                        <header className="section-header">
+                            <h1>Team's Page</h1>
+                        </header>
+                        <div>
+                            <p className="section-p">Select a list to create your teams.</p>
+                        </div>
+                    </div>
+                    
                 </Section>
                 <Section>
                     <BackAndAlt 
@@ -41,11 +45,7 @@ class ListTeamsPage extends Component {
                     />
                     <ListTeams items={this.context.lists} />
                 </Section>
-                <Section>
-                    <div className="wrapper">
-                        <p>To create more lists, go to the <Link to="/lists">Lists Page</Link>.</p>
-                    </div>
-                </Section>
+                <Section />
             </div>
         );
     }
