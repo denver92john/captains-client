@@ -9,13 +9,16 @@ class DashboardPage extends Component {
                 <Section className="hero">
                     <header className="section-header">
                         <h1>{this.props.user.username}</h1>
-                        <p>Select the 'Lists' icon to go to the Lists page.</p>
-                        <p>Select the 'Teams' icon to go to the Teams page.</p>
                     </header>
+                    <div>
+                        <p>Select the 'Lists' icon to add, edit, and delete lists and list items.</p>
+                        <p>Select the 'Teams' icon to start creating your teams.</p>
+                    </div>
                 </Section>
                 <Section>
                     <Dash />
                 </Section>
+                <Section />
             </div>
         );
     }
