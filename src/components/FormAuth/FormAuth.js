@@ -1,5 +1,6 @@
 import React from 'react';
 import {Input, Button, Label, Form} from '../Utils/Utils';
+import './FormAuth.css';
 
 function FormAuth(props) {
     return (
@@ -26,8 +27,10 @@ function FormAuth(props) {
 
             {props.children}
 
-            <div role="alert">
-                {props.err && <p>{props.err}</p>}
+            <div className="errMessage">
+                <div role="alert">
+                    {props.err && <p className="red">{props.err}</p>}
+                </div>
             </div>
 
             <div className="form-auth-buttons">
