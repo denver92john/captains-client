@@ -123,6 +123,7 @@ class ListItemsPage extends Component {
                         backWhat="Lists"
                         altTo={`/team/list/${list.id}`}
                         altWhat="Create Teams"
+                        isList={true}
                     />
                     <List 
                         items={items}

@@ -112,6 +112,7 @@ class ListsPage extends Component {
                         backWhat="Dashboard"
                         altTo="/teams"
                         altWhat="Teams"
+                        isList={true}
                     />
                     
                     <List 
