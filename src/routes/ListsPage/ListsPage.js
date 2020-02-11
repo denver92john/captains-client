@@ -6,6 +6,7 @@ import ListContext from '../../contexts/ListContext';
 import {Section} from '../../components/Utils/Utils';
 import BackAndAlt from '../../components/BackAndAlt/BackAndAlt';
 import List from '../../components/List/List';
+import FormModal from '../../components/FormModal/FormModal';
 
 Modal.setAppElement("#root");
 
@@ -68,16 +69,16 @@ class ListsPage extends Component {
 
     handlePatchList = ev => {
         ev.preventDefault();
-        const {list_name} = ev.target;
+        const {item_name} = ev.target;
         const {patchListId} = this.state;
         const patchedList = {
-            list_name: list_name.value
+            item_name: item_name.value
         }
 
         ListApiService.patchList(patchedList, patchListId)
             .then(() => {
                 this.context.patchList(patchedList.list_name, patchListId)
-                list_name.value = ''
+                item_name.value = ''
             })
             .catch(this.context.setError)
 
@@ -124,8 +125,13 @@ class ListsPage extends Component {
                     <Modal
                         isOpen={this.state.showModal}
                         contentLabel="Update it"
+                        className="form-modal"
                     >
-                        <form onSubmit={this.handlePatchList}>
+                        <FormModal 
+                            onModal={this.handlePatchList} 
+                            onCloseModal={this.handleCloseModal} 
+                        />
+                        {/*<form onSubmit={this.handlePatchList}>
                             <input 
                                 type="text"
                                 name="list_name"
@@ -142,7 +148,7 @@ class ListsPage extends Component {
                             >
                                 Cancel
                             </button>
-                        </form>
+                        </form>*/}
                     </Modal>
                 </Section>
                 <Section>

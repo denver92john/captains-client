@@ -20,6 +20,10 @@
     border-radius: 4px;
 }
 
+.input:focus {
+    outline: var(--color2) solid 1px;
+}
+
 
 
 .form {

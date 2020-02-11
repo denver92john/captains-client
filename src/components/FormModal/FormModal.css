@@ -1,0 +1,23 @@
+.form-modal {
+    position: absolute;
+    top: 40%;
+    right: 20%;
+    bottom: 30%;
+    left: 20%;
+    border: 1px solid var(--color2);
+    background-color: white;
+}
+
+.form-modal-form {
+    padding: 5px;
+}
+
+.form-modal-buttons {
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.form-modal-btn {
+    padding: 5px 10px;
+}

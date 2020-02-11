@@ -1,11 +1,12 @@
 import React from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {Input} from '../Utils/Utils';
 import './FormList.css';
 
 function FormList(props) {
     return (
         <form onSubmit={props.onPost} className="form-list">
-            <input 
+            <Input 
                 type="text"
                 name="item_name"
                 className="form-list-input"

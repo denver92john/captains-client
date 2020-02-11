@@ -4,23 +4,29 @@ import './FormModal.css';
 
 function FormModal(props) {
     return (
-        <form onSubmit={props.onModal}>
+        <form onSubmit={props.onModal} className="form-modal-form">
             <Input 
                 type="text"
                 name="item_name"
+                className="form-modal-input"
                 required
             />
 
-            <Button
-                type="submit"
-            >
-                Update
-            </Button>
+            <div className="form-modal-buttons">
+                <Button
+                    type="submit"
+                    className="form-modal-btn"
+                >
+                    Update
+                </Button>
 
-            <Button
-                type="button"
-                onClick={props.onCloseModal}
-            ></Button>
+                <Button
+                    type="button"
+                    className="form-modal-btn"
+                    onClick={props.onCloseModal}
+                >Cancel</Button>
+            </div>
+            
         </form>
     );
 }
