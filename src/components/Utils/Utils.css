@@ -1,3 +1,4 @@
+/* ------- SECTION ------- */
 .section {
     min-height: 300px;
     padding: 10px;
@@ -8,7 +9,20 @@
     background-color: #bbb;
 }
 
+.section-header {
+    padding: 25px;
+}
 
+.section-div {
+    text-align: left;
+}
+
+.section-p {
+    padding-bottom: 20px;
+}
+
+
+/* ------- INPUTS ------- */
 .input,
 .button {
     font-size: var(--basis);
@@ -25,7 +39,7 @@
 }
 
 
-
+/* ------- FORMS ------- */
 .form {
     padding: 10px;
 }
@@ -58,4 +72,5 @@
     display: block;
     width: 100%;
     padding: 10px 0;
+    font-size: var(--stepUp1);
 }

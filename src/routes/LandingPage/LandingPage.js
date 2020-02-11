@@ -6,30 +6,39 @@ class LandingPage extends Component {
         return (
             <div>
                 <Section className="hero">
-                    <header className="section-header">
-                        <h1>Landing Page</h1>
-                    </header>
-                    <div className="section-div">
-                        This app (Captains) will allow you to create a list of names which you can then use to create a randomized set number of teams.
-                    </div>
-                </Section>
-                <Section>
                     <div className="wrapper">
                         <header className="section-header">
-                            <h2>Create Player List</h2>
+                            <h1>Captains</h1>
                         </header>
                         <div className="section-div">
-                            Create a list of names by adding individual names to a list. You can then edit the person's name or delete them from the list.
+                            <p className="section-p">Have you ever organized a party or another type of event where everyone is supposed to split up into groups but no one wants to step up and be a team captain to pick teams?</p>
+                            <p className="section-p">Captains fills that void by allowing you to create a list of everyones names, and randomly selects and creates the teams for you.</p>
                         </div>
                     </div>
                 </Section>
                 <Section>
                     <div className="wrapper">
                         <header className="section-header">
-                            <h2>Create Randomized Teams</h2>
+                            <h2>Lists</h2>
                         </header>
                         <div className="section-div">
-                            After a list has been created you can then create a set number of teams with a randomized order of said list.
+                            <p className="section-p">Navigate to the List's Page where you can add, edit, or delete your lists.</p>
+                            <p className="section-p">To create a list, type the name of the list into the input box and click the create button.</p>
+                            <p className="section-p">To add items or names to your list, click the name of the list which will then take you to that list's items page.</p>
+                            <p className="section-p">On the list's items page, you can add, edit, and delete names from that list.</p>
+                        </div>
+                    </div>
+                </Section>
+                <Section>
+                    <div className="wrapper">
+                        <header className="section-header">
+                            <h2>Teams</h2>
+                        </header>
+                        <div className="section-div">
+                            <p className="section-p">Once you have created a list and added all of your names/items to that list, go to the Team's List page and select the desired list to start creating teams.</p>
+                            <p className="section-p">You will know you are on the Team's List page when there is no option to add, edit, or delete any of your lists.</p>
+                            <p className="section-p">Once you have selected the list you want to create teams with, you will be taken to the Teams page.</p>
+                            <p className="section-p">From there, pick the number of desired teams and all of the names in that list will be randomly divided to create your teams.</p>
                         </div>
                     </div>
                 </Section>
@@ -38,9 +47,9 @@ class LandingPage extends Component {
                         <header className="section-header">
                             <h2>User Demo Account</h2>
                         </header>
-                        <div className="section-div">
-                            <p>Username: JDenver</p>
-                            <p>Password: JDenver1!</p>
+                        <div>
+                            <p className="section-p">Username: JDenver</p>
+                            <p className="section-p">Password: JDenver1!</p>
                         </div>
                     </div>
                 </Section>
