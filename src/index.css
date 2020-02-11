@@ -16,6 +16,16 @@
   --color4: #D3D3D3;
 }
 
+@font-face {
+  font-family: "Roboto";
+  src: local("Roboto"), url(./fonts/Roboto/Roboto-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "Graduate";
+  src: local("Graduate"), url(./fonts/Graduate/Graduate-Regular.ttf) format("truetype");
+}
+
 html {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -31,7 +41,7 @@ html {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family:  'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -42,6 +52,20 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+h1 {
+  font-family: "Graduate";
+  font-size: var(--stepUp4);
+}
+h2 {
+  font-size: var(--stepUp3);
+}
+h3 {
+  font-size: var(--stepUp2);
+}
+h4 {
+  font-size: var(--stepUp1);
 }
 
 a {

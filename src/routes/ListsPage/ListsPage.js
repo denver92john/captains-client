@@ -111,7 +111,7 @@ class ListsPage extends Component {
                         backTo="/dashboard"
                         backWhat="Dashboard"
                         altTo="/teams"
-                        altWhat="Teams"
+                        altWhat="Pick List"
                         isList={true}
                     />
                     
