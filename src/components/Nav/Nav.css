@@ -1,5 +1,5 @@
 .navbar {
-    min-height: 40px;
+    min-height: 50px;
     max-width: 650px;
     margin: auto;
     padding: 4px;
@@ -23,4 +23,9 @@
 
 .nav-link {
     padding: 5px;
+    font-size: var(--stepUp1);
+}
+.nav-link:active,
+.nav-link:hover {
+    border-bottom: 1px solid black;
 }
