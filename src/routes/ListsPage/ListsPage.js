@@ -7,7 +7,7 @@ import BackAndAlt from '../../components/BackAndAlt/BackAndAlt';
 import List from '../../components/List/List';
 import FormModal from '../../components/FormModal/FormModal';
 
-Modal.setAppElement("#root");
+//Modal.setAppElement("#root");
 
 class ListsPage extends Component {
     constructor() {
@@ -71,7 +71,7 @@ class ListsPage extends Component {
         const {item_name} = ev.target;
         const {patchListId} = this.state;
         const patchedList = {
-            item_name: item_name.value
+            list_name: item_name.value
         }
 
         ListApiService.patchList(patchedList, patchListId)

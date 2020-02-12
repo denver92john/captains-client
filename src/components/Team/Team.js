@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-//import {Link} from 'react-router-dom';
 import './Team.css';
 
 function createNamesArray(array) {
@@ -47,7 +46,6 @@ class Team extends Component {
         teams: []
     }
 
-    // do i need to use shouldComponentUpdate()??
     componentDidUpdate(oldProps) {
         if(oldProps.items !== this.props.items) {
             const listNames = createNamesArray(this.props.items)
@@ -87,9 +85,6 @@ class Team extends Component {
         const {teams} = this.state;
         return (
             <>
-                {/*(teams.length === 0)
-                    ? <p>Add some players to this list before you create any teams.</p>
-                    : null*/}
                 <ul className="team-list">
                     {teams.map((team, index) =>
                         <li key={index} className="team-item">

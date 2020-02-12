@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Listitem component renders UI as expected 1`] = `
+<li
+  className="list-item"
+>
+  <p
+    className="list-item-p"
+  >
+    Joe
+  </p>
+  <div>
+    <button
+      className="formitem-button"
+      onClick={[Function]}
+      type="button"
+    />
+    <button
+      className="formitem-button"
+      onClick={[Function]}
+      type="button"
+    />
+  </div>
+</li>
+`;

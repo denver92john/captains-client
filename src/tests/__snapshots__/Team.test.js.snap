@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Team component renders UI as expected 1`] = `
+<div
+  className="wrapper team"
+>
+  <form
+    className="team-form"
+    onSubmit={[Function]}
+  >
+    <div
+      className="team-form-section"
+    >
+      <label
+        className="team-form-label"
+        htmlFor="number-teams-input"
+      >
+        Number of teams (2-10): 
+      </label>
+      <input
+        className="team-form-input"
+        id="number-teams-input"
+        max="10"
+        min="2"
+        name="number_teams"
+        type="number"
+      />
+    </div>
+    <button
+      className="team-form-button"
+      type="submit"
+    >
+      Create Teams
+    </button>
+  </form>
+  <ul
+    className="team-list"
+  />
+</div>
+`;
