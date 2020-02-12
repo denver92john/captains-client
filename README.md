@@ -1,68 +1,46 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Captains
+Captains provides you the ability to create a list of names, and from there you can create a set number of teams by randomly assigning the names in you list to those teams.
+[Live version](https://captains.now.sh/)
 
-## Available Scripts
+## Description
+There's two primary functions to Captains: Lists and Teams.
 
-In the project directory, you can run:
+### Lists
+The list functionality is where lists can be created. Once a list is created, you can then add items to the list by clicking on the list's name on the Lists page. When the list name is clicked on, the user will be taken to the the list's items page. Once there the user can add items/names to that list. 
 
-### `npm start`
+Lists Page
+![Lists page](src/img/lists_page.png)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+List's Items Page
+![Lists items page](src/img/lists_items_page.png)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+There are edit and delete capabilities to both the lists and list items. 
 
-### `npm test`
+A user can only modify their lists and their list's items from the List and List Items pages. 
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+------------------------------------------
 
-### `npm run build`
+### Teams
+Once the user has a list with all of the desired names on that list, they can then can create their teams. 
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+On the Teams List page, the user can select a list to use. The user can not add, edit or delete the lists from here that can only be down from the Lists page. 
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Teams List Page
+![teams list page](src/img/teams_list_page.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Once a list has been choosen, the user will be taken to the Team page. From there the user selects their desired number of teams and clicks the create teams button.
 
-### `npm run eject`
+Team Page
+![team page](src/img/team_page.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+A specified number of teams will be created with the names in the choosen list randomly assigned to the teams. 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Dependencies
+### react-modal
+The react-modal dependency is used as a way to edit the names of lists and list items. Here is the [link](https://reactcommunity.org/react-modal/) for the documentation of this dependency. 
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Roadmap
+The next functionality to be added to Captains would be to provide the user the ability to create a playoff bracket after a set of teams is created. 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Technologies Used
+*   React
