@@ -4,7 +4,7 @@ import PrivateRoute from '../Utils/PrivateRoute';
 import PublicOnlyRoute from '../Utils/PublicOnlyRoute';
 import DashboardPage from '../../routes/DashboardPage/DashboardPage';
 import LandingPage from '../../routes/LandingPage/LandingPage';
-import ListItemsPage from '../../routes/ListItemsPage/ListItemsPage';
+import NamesPage from '../../routes/NamesPage/NamesPage';
 import ListsPage from '../../routes/ListsPage/ListsPage';
 import LoginPage from '../../routes/LoginPage/LoginPage';
 import NotFoundPage from '../../routes/NotFoundPage/NotFoundPage';
@@ -57,7 +57,7 @@ class App extends Component {
             {/* --- PrivateRoute wasn't passing along the :/list_id param unless {...props} is under the Route  --- */}
             <PrivateRoute
               path={'/list/:list_id/list-items'}
-              component={ListItemsPage}
+              component={NamesPage}
             />
             <PrivateRoute
               path={'/lists'}

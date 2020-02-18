@@ -12,7 +12,7 @@ const ListApiService = {
                 (!res.ok)
                     ? res.json().then(e => Promise.reject(e))    
                     : res.json()
-            )
+            );
     },
     postList(newList) {
         return fetch(`${config.API_ENDPOINT}/list`, {
@@ -27,7 +27,7 @@ const ListApiService = {
                 (!res.ok)
                     ? res.json().then(e => Promise.reject(e))    
                     : res.json()
-            )
+            );
     },
     getList(listId) {
         return fetch(`${config.API_ENDPOINT}/list/${listId}`, {
@@ -39,7 +39,7 @@ const ListApiService = {
                 (!res.ok)
                     ? res.json().then(e => Promise.reject(e))
                     : res.json()
-            )
+            );
     },
     deleteList(listId) {
         return fetch(`${config.API_ENDPOINT}/list/${listId}`, {
@@ -52,7 +52,7 @@ const ListApiService = {
                 (!res.ok)
                     ? res.json().then(e => Promise.reject(e))
                     : res
-            )
+            );
     },
     patchList(patchedList, listId) {
         return fetch(`${config.API_ENDPOINT}/list/${listId}`, {
@@ -67,7 +67,7 @@ const ListApiService = {
                 (!res.ok)
                     ? res.json().then(e => Promise.reject(e))
                     : res
-            )
+            );
     }
 }
 

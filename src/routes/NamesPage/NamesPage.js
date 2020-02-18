@@ -10,7 +10,7 @@ import FormModal from '../../components/FormModal/FormModal';
 
 //Modal.setAppElement("#root"); 
 
-class ListItemsPage extends Component {
+class NamesPage extends Component {
     constructor() {
         super();
         this.state = {
@@ -113,7 +113,7 @@ class ListItemsPage extends Component {
                 <Section className="hero">
                     <div className="wrapper">
                         <header className="section-header">
-                            <h1>{list.list_name} Item's Page</h1>
+                            <h1>{list.list_name} Items</h1>
                         </header>
                         <div>
                             <p className="section-p">To add a name to the list, type a name in the input and click the 'Create' button.</p>
@@ -152,4 +152,4 @@ class ListItemsPage extends Component {
     }
 }
 
-export default ListItemsPage;
+export default NamesPage;

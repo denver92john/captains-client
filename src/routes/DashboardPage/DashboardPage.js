@@ -8,10 +8,10 @@ class DashboardPage extends Component {
             <div>
                 <Section className="hero">
                     <header className="section-header">
-                        <h1>{this.props.user.username}</h1>
+                        <h1>Dashboard</h1>
                     </header>
                     <div>
-                        <p>Select the 'Lists' icon to add, edit, and delete lists and list items.</p>
+                        <p className="section-p">Select the 'Lists' icon to modify your lists.</p>
                         <p>Select the 'Teams' icon to start creating your teams.</p>
                     </div>
                 </Section>

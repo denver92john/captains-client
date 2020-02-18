@@ -6,13 +6,13 @@ Captains provides you the ability to create a list of names, and from there you 
 There's two primary functions to Captains: Lists and Teams.
 
 ### Lists
-The list functionality is where lists can be created. Once a list is created, you can then add items to the list by clicking on the list's name on the Lists page. When the list name is clicked on, the user will be taken to the the list's items page. Once there the user can add items/names to that list. 
+The list functionality is where lists can be created. Once a list is created, you can then add items to the list by clicking on the list's name on the Lists page. When the list name is clicked on, the user will be taken to the the names page. Once there the user can add items/names to that list. 
 
 Lists Page
 ![Lists page](src/img/lists_page.png)
 
-List's Items Page
-![Lists items page](src/img/lists_items_page.png)
+Names Page
+![Names page](src/img/lists_items_page.png)
 
 There are edit and delete capabilities to both the lists and list items. 
 
@@ -28,16 +28,19 @@ On the Teams List page, the user can select a list to use. The user can not add,
 Teams List Page
 ![teams list page](src/img/teams_list_page.png)
 
-Once a list has been choosen, the user will be taken to the Team page. From there the user selects their desired number of teams and clicks the create teams button.
+Once a list has been chosen, the user will be taken to the Team page. From there the user selects their desired number of teams and clicks the create teams button.
 
 Team Page
 ![team page](src/img/team_page.png)
 
-A specified number of teams will be created with the names in the choosen list randomly assigned to the teams. 
+A specified number of teams will be created with the names in the chosen list randomly assigned to the teams. 
 
 ## Dependencies
 ### react-modal
 The react-modal dependency is used as a way to edit the names of lists and list items. Here is the [link](https://reactcommunity.org/react-modal/) for the documentation of this dependency. 
+
+## API
+A link to the repo for the API can found [here](https://github.com/denver92john/captains-api).
 
 ## Roadmap
 The next functionality to be added to Captains would be to provide the user the ability to create a playoff bracket after a set of teams is created. 

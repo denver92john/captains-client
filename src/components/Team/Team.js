@@ -43,7 +43,8 @@ function createTeams(arr, numberOfTeams) {
 class Team extends Component {
     state = {
         names: [],
-        teams: []
+        teams: [],
+        error: null
     }
 
     componentDidUpdate(oldProps) {
@@ -55,7 +56,11 @@ class Team extends Component {
 
     handleSubmit = ev => {
         ev.preventDefault();
+        this.setState({error: null})
         const {number_teams} = ev.target;
+        if(this.state.names.length === 0) {
+            this.setState({error: 'There are no names in this list'})
+        }
         const shuffledList = shuffleArray(this.state.names);
         const newTeams = createTeams(shuffledList, number_teams.value);
         this.setState({teams: newTeams})
@@ -82,9 +87,12 @@ class Team extends Component {
     }
 
     renderTeamList() {
-        const {teams} = this.state;
+        const {teams, error} = this.state;
         return (
             <>
+                {error
+                    ? <p>{error}</p>
+                    : null}
                 <ul className="team-list">
                     {teams.map((team, index) =>
                         <li key={index} className="team-item">
@@ -100,7 +108,7 @@ class Team extends Component {
         const {error} = this.props;
         let content;
         if(error) {
-            content = <p>There wasn an error</p>
+            content = <p>{error}</p>
         } else {
             content = 
                 <div className="wrapper team">

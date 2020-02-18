@@ -12,7 +12,7 @@ const ItemApiService = {
                 (!res.ok)
                     ? res.json().then(e => Promise.reject(e))
                     : res.json()
-            )
+            );
     },
     postItem(newItem) {
         return fetch(`${config.API_ENDPOINT}/item`, {
@@ -27,7 +27,7 @@ const ItemApiService = {
                 (!res.ok)
                     ? res.json().then(e => Promise.reject(e))
                     : res.json()
-            )
+            );
     },
     deleteItem(itemId) {
         return fetch(`${config.API_ENDPOINT}/item/${itemId}`, {
@@ -40,7 +40,7 @@ const ItemApiService = {
                 (!res.ok)
                     ? res.json().then(e => Promise.reject(e))    
                     : res
-            )
+            );
     },
     patchItem(patchedItem, itemId) {
         return fetch(`${config.API_ENDPOINT}/item/${itemId}`, {
@@ -55,7 +55,7 @@ const ItemApiService = {
                 (!res.ok)
                     ? res.json().then(e => Promise.reject(e))
                     : res
-            )
+            );
     }
 }
 
