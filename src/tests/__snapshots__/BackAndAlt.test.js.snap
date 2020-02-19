@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BackAndAlt component renders UI as expected 1`] = `
+<div
+  className="back-and-alt"
+>
+  <div
+    className="backbutton-div"
+  >
+    <a
+      href="/dashboard"
+      onClick={[Function]}
+    >
+      <p
+        className="backbutton-text"
+      >
+        Dashboard
+      </p>
+    </a>
+  </div>
+  <div>
+    <a
+      href="/teams"
+      onClick={[Function]}
+    >
+      <p
+        className="altbutton-text"
+      >
+        Pick List
+      </p>
+    </a>
+  </div>
+</div>
+`;

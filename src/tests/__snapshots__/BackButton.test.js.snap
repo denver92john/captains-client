@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BackButton component renders UI as expected 1`] = `
+<div
+  className="backbutton-div"
+>
+  <a
+    href="/dashboard"
+    onClick={[Function]}
+  >
+    <p
+      className="backbutton-text"
+    >
+      Dashboard
+    </p>
+  </a>
+</div>
+`;

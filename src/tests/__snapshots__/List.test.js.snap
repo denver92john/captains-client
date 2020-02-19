@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List component renders UI as expected 1`] = `
+<div
+  className="wrapper list-component"
+>
+  <form
+    className="form-list"
+  >
+    <input
+      className="input form-list-input"
+      name="item_name"
+      required={true}
+      type="text"
+    />
+    <button
+      className="form-list-button"
+      type="submit"
+    />
+  </form>
+  <ul
+    className="named-list"
+  >
+    <li
+      className="list-item"
+    >
+      <a
+        className="list-item-link"
+        href="/list/1/list-items"
+        onClick={[Function]}
+      >
+        Joe
+      </a>
+      <div>
+        <button
+          className="formitem-button"
+          onClick={[Function]}
+          type="button"
+        />
+        <button
+          className="formitem-button"
+          onClick={[Function]}
+          type="button"
+        />
+      </div>
+    </li>
+    <li
+      className="list-item"
+    >
+      <a
+        className="list-item-link"
+        href="/list/2/list-items"
+        onClick={[Function]}
+      >
+        Green
+      </a>
+      <div>
+        <button
+          className="formitem-button"
+          onClick={[Function]}
+          type="button"
+        />
+        <button
+          className="formitem-button"
+          onClick={[Function]}
+          type="button"
+        />
+      </div>
+    </li>
+  </ul>
+</div>
+`;

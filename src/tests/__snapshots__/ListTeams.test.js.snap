@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ListTeams component renders UI as expected 1`] = `
+<div
+  className="wrapper list-component"
+>
+  <ul
+    className="named-list"
+  >
+    <li
+      className="list-team-item"
+    >
+      <a
+        className="list-team-item-link"
+        href="/team/list/1"
+        onClick={[Function]}
+      >
+        Joe
+      </a>
+    </li>
+    <li
+      className="list-team-item"
+    >
+      <a
+        className="list-team-item-link"
+        href="/team/list/2"
+        onClick={[Function]}
+      >
+        Green
+      </a>
+    </li>
+  </ul>
+</div>
+`;
