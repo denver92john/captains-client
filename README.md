@@ -6,7 +6,7 @@ Captains provides you the ability to create a list of names, and from there you 
 There's two primary functions to Captains: Lists and Teams.
 
 ### Lists
-The list functionality is where lists can be created. Once a list is created, you can then add items to the list by clicking on the list's name on the Lists page. When the list name is clicked on, the user will be taken to the the names page. Once there the user can add items/names to that list. 
+The list functionality is where lists can be created. Once a list is created, you can then add items to the list by clicking on the list's name on the Lists page. When the list name is clicked on, the user will be taken to the the Names page. Once there the user can add items/names to that list. 
 
 Lists Page
 ![Lists page](src/img/lists_page.png)
@@ -16,7 +16,7 @@ Names Page
 
 There are edit and delete capabilities to both the lists and list items. 
 
-A user can only modify their lists and their list's items from the List and List Items pages. 
+A user can only modify their lists and their list's items from the List and Names pages. 
 
 ------------------------------------------
 
