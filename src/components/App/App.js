@@ -54,7 +54,6 @@ class App extends Component {
               component={DashboardPage}
               user={this.state.user}
             />
-            {/* --- PrivateRoute wasn't passing along the :/list_id param unless {...props} is under the Route  --- */}
             <PrivateRoute
               path={'/list/:list_id/list-items'}
               component={NamesPage}

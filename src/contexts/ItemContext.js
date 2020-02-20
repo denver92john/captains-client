@@ -48,7 +48,6 @@ export class ItemProvider extends Component {
         }))
     }
 
-    //JSON.parse(JSON.stringify(array))
     patchItem = (itemName, itemId) => {
         const {items} = this.state;
         let itemIndex = items.findIndex(obj => obj.id === itemId);

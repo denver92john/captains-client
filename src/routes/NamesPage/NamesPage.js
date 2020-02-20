@@ -8,8 +8,6 @@ import BackAndAlt from '../../components/BackAndAlt/BackAndAlt';
 import List from '../../components/List/List';
 import FormModal from '../../components/FormModal/FormModal';
 
-//Modal.setAppElement("#root"); 
-
 class NamesPage extends Component {
     constructor() {
         super();
