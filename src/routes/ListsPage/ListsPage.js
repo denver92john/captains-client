@@ -14,6 +14,7 @@ class ListsPage extends Component {
         super();
         this.state = {
             showModal: false,
+            modalPlaceholder: null,
             patchListId: null
         };
         this.handleOpenModal = this.handleOpenModal.bind(this);
@@ -27,7 +28,10 @@ class ListsPage extends Component {
     }
 
     handleCloseModal() {
-        this.setState({showModal: false})
+        this.setState({
+            showModal: false,
+            modalPlaceholder: null
+        })
     }
 
     componentDidMount() {
@@ -62,7 +66,10 @@ class ListsPage extends Component {
     handlePrePatch = (list, ev) => {
         ev.preventDefault();
         this.context.clearError();
-        this.setState({patchListId: list.id});
+        this.setState({
+            patchListId: list.id,
+            modalPlaceholder: list.list_name
+        });
         this.handleOpenModal();
     }
 
@@ -132,7 +139,8 @@ class ListsPage extends Component {
                     >
                         <FormModal 
                             onModal={this.handlePatchList} 
-                            onCloseModal={this.handleCloseModal} 
+                            onCloseModal={this.handleCloseModal}
+                            placeholder={this.state.modalPlaceholder}
                         />
                     </Modal>
                 </Section>

@@ -1,14 +1,17 @@
 import React from 'react';
-import {Input, Button} from '../Utils/Utils';
+import {Label, Input, Button} from '../Utils/Utils';
 import './FormModal.css';
 
 function FormModal(props) {
     return (
         <form onSubmit={props.onModal} className="form-modal-form">
+            <Label htmlFor="item_name_input">Edit Name:</Label>
             <Input 
                 type="text"
+                id="item_name_input"
                 name="item_name"
                 className="form-modal-input"
+                placeholder={props.placeholder}
                 required
             />
 

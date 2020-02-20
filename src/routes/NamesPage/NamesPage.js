@@ -15,6 +15,7 @@ class NamesPage extends Component {
         super();
         this.state = {
             showModal: false,
+            modalPlaceholder: null,
             patchItemId: null
         }
         this.handleOpenModal = this.handleOpenModal.bind(this);
@@ -32,7 +33,10 @@ class NamesPage extends Component {
     }
 
     handleCloseModal() {
-        this.setState({showModal: false})
+        this.setState({
+            showModal: false,
+            modalPlaceholder: null
+        })
     }
 
     componentDidMount() {
@@ -72,7 +76,10 @@ class NamesPage extends Component {
 
     handlePrePatch = (item, ev) => {
         ev.preventDefault();
-        this.setState({patchItemId: item.id})
+        this.setState({
+            patchItemId: item.id,
+            modalPlaceholder: item.item_name
+        })
         this.handleOpenModal();
     }
 
@@ -142,10 +149,11 @@ class NamesPage extends Component {
                         <FormModal 
                             onModal={this.handlePatchItem}
                             onCloseModal={this.handleCloseModal}
+                            placeholder={this.state.modalPlaceholder}
                         />
-                        
                     </Modal>
                 </Section>
+
                 <Section />
             </div>
         );
