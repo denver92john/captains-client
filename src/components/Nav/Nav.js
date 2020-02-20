@@ -10,6 +10,7 @@ class Nav extends Component {
         this.props.onLogOut()
     }
 
+    // rendered if logged in
     renderLoggedIn = () => {
         return (
             <ul className="nav-links">
@@ -34,6 +35,7 @@ class Nav extends Component {
         );
     }
 
+    // rendered if logged out
     renderLoggedOut = () => {
         return (
             <ul className="nav-links">

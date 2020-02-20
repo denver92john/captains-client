@@ -8,6 +8,7 @@ function List(props) {
     return (
         <div className="wrapper list-component">
             <FormList onPost={onPost} />
+            {/* conditionally render alert that no items have been passed down in props */}
             {(items.length === 0)
                 ? <p>You haven't added anything yet.</p>
                 : null}

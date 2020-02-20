@@ -7,6 +7,7 @@ class ListTeams extends Component {
         const {items} = this.props;
         return (
             <div className="wrapper list-component">
+                {/* if no lists passed down via props p tag is rendered */}
                 {(items.length === 0)
                     ? <p>You haven't created any lists yet. Go to the <Link to={`/lists`} className="no-lists-link">Lists Page</Link> to create a new list.</p>
                     : null}

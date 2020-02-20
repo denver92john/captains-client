@@ -7,8 +7,6 @@ import BackAndAlt from '../../components/BackAndAlt/BackAndAlt';
 import List from '../../components/List/List';
 import FormModal from '../../components/FormModal/FormModal';
 
-//Modal.setAppElement("#root");
-
 class ListsPage extends Component {
     constructor() {
         super();
@@ -63,6 +61,7 @@ class ListsPage extends Component {
             .catch(this.context.setError)
     }
 
+    // passed down to FormItem and triggered when edit icon clicked
     handlePrePatch = (list, ev) => {
         ev.preventDefault();
         this.context.clearError();
@@ -73,6 +72,7 @@ class ListsPage extends Component {
         this.handleOpenModal();
     }
 
+    // called when FormModal submitted
     handlePatchList = ev => {
         ev.preventDefault();
         const {item_name} = ev.target;

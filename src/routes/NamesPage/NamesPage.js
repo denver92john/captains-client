@@ -74,6 +74,7 @@ class NamesPage extends Component {
             .catch(this.context.setError)
     }
 
+    // passed down to FormItem and triggered when edit icon clicked
     handlePrePatch = (item, ev) => {
         ev.preventDefault();
         this.setState({
@@ -83,6 +84,7 @@ class NamesPage extends Component {
         this.handleOpenModal();
     }
 
+    // called when FormModal submitted
     handlePatchItem = ev => {
         ev.preventDefault();
         this.context.clearError();

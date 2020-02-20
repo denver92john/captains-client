@@ -8,6 +8,7 @@ function AltButton(props) {
         <div>
             <Link to={props.altTo}>
                 <p className="altbutton-text">{props.altWhat}</p>
+                {/* to distinguish which icon to display */}
                 {(!props.isList)
                     ? <FontAwesomeIcon icon="list" className="fa-altbutton-icon" />
                     : <FontAwesomeIcon icon="user-friends" className="fa-altbutton-icon" />}

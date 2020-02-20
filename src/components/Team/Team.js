@@ -1,12 +1,14 @@
 import React, {Component} from 'react';
 import './Team.css';
 
+// creates a new array with just the item names
 function createNamesArray(array) {
     const nameArray = [];
     array.map(item => nameArray.push(` ${item.item_name}`))
     return nameArray;
 }
 
+// randomly shuffles the array passed in
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -15,6 +17,7 @@ function shuffleArray(array) {
     return array;
 }
 
+// creates specified number of teams and divides the array evenly
 function createTeams(arr, numberOfTeams) {
     let rest = arr.length % numberOfTeams,
         restUsed = rest,
